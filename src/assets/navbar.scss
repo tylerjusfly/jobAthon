@@ -1,0 +1,42 @@
+@import './config.scss';
+@import url('https://fonts.googleapis.com/css2?family=Marvel:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin flexFunc($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: space-between;
+}
+
+.Navbar {
+  background-image: $NavColor;
+  color: #f5f5f5;
+  @include flexFunc(row);
+  padding: 15px;
+
+  .Nav-logo {
+    align-self: center;
+  }
+  .Nav-logo span {
+    font-size: 27px;
+    color: rgba(40, 109, 144, 0.443);
+  }
+
+  .Nav-List {
+    @include flexFunc(row);
+    gap: 30px;
+    padding-right: 15px;
+    list-style: none;
+    align-self: center;
+  }
+  & li {
+    border: 1px solid #222;
+    padding: 8px;
+    font-weight: 800;
+    font-family: 'Marvel', 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+}
