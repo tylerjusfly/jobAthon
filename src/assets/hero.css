@@ -8,14 +8,17 @@
 
 .Hero-image {
   margin: 0px auto;
-  width: 400px;
+  max-width: 1000px;
   height: 400px;
+  overflow: hidden;
 }
 .Hero-image img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .Hero-sponsor {
@@ -26,7 +29,7 @@
   padding: 2em;
 }
 .Hero-sponsor img {
-  width: 80px;
+  max-width: 60px;
   height: 60px;
   border-radius: 5px;
   -o-object-fit: cover;

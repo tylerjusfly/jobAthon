@@ -1,0 +1,11 @@
+type GIGS @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  position: String!
+  location: String!
+  type: String!
+  company: String!
+  tags: [String!]!
+  description: String!
+}
+ 

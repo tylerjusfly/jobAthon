@@ -11,7 +11,7 @@ export const Homepage = () => {
       <div className='Hero-text'>Connecting dots between Developers , tech enthusiasts with Tech companies</div>
       <div className='Hero-image'>
         <img src={Heroimg} alt='woman with Dog'/>
-      </div>
+        </div>
       <div className='Hero-sponsor'>
         <img src={amplify} alt='amplify logo'/>
         <img src={hasnode} alt='hashnode logo'/>

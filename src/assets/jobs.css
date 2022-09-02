@@ -2,3 +2,20 @@
   text-align: left;
   margin: 15px;
 }
+
+.location {
+  color: #666;
+}
+
+.company--img {
+  width: 60px;
+}
+
+.company--card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.company--card span {
+  font-weight: 700;
+}
