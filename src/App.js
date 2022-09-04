@@ -1,7 +1,9 @@
 import './assets/App.css';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import { Homepage } from './components/Homepage';
+import { Singlecard } from './components/Singlecard';
 import { Navbar } from './components/Navbar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import { DataStore } from '@aws-amplify/datastore';
 // import { GIGS } from './models';
 
@@ -19,12 +21,22 @@ import { Navbar } from './components/Navbar';
 
 function App({ signOut, user }) {
   return (
-    <div className="App">
-      <Navbar />
-      <Homepage />
-      {user.attributes.email}
-      <button onClick={signOut}> SignOut </button>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="App">
+              <Navbar />
+              <Homepage />
+              {user.attributes.email}
+              <button onClick={signOut}> SignOut </button>
+            </div>
+          }
+        />
+        <Route path="/gigs/:gigsId" element={<Singlecard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

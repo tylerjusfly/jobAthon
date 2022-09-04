@@ -1,0 +1,41 @@
+// .Single {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: blue;
+// }
+
+.Single {
+  img {
+    width: 85px;
+    object-fit: contain;
+  }
+  .single--company {
+    color: #666;
+
+    span {
+      font-size: larger;
+      font-weight: 900;
+    }
+  }
+}
+
+.tags {
+  li {
+    font-weight: 700;
+    font-family: 'Marvel', 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  button {
+    height: 3.2rem;
+    background: #000;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 0;
+
+    a {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+  }
+}

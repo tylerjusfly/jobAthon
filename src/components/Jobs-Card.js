@@ -1,13 +1,15 @@
 import React from 'react';
 import google from '../assets/images/google-svg.svg';
+import { Link } from 'react-router-dom';
 
-export const JobCard = ({ position, location, type, company, tags }) => {
+export const JobCard = ({ id, position, location, type, company, tags }) => {
   return (
     <div className="bg-gray-50 border border-gray-200 rounded p-6">
       <div className="flex">
         <div>
           <h3 className="text-xl mb-4 font-bold">
-            <a href="show.html">{position}</a>
+            {/* <a href={`gigs/${id}`}>{position}</a> */}
+            <Link to={`gigs/${id}`}>{position}</Link>
           </h3>
           <div className="text-l font-bold mb-4 location">
             <i className="fa-solid fa-location-dot"></i> {location} . {type}

@@ -1,0 +1,29 @@
+.Single img {
+  width: 85px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.Single .single--company {
+  color: #666;
+}
+.Single .single--company span {
+  font-size: larger;
+  font-weight: 900;
+}
+
+.tags li {
+  font-weight: 700;
+  font-family: "Marvel", "Open Sans", "Helvetica Neue", sans-serif;
+}
+.tags button {
+  height: 3.2rem;
+  background: #000;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 0;
+}
+.tags button a {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
