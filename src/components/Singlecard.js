@@ -1,6 +1,9 @@
 import React from 'react';
 import '../assets/single.css';
+//import { withAuthenticator } from '@aws-amplify/ui-react';
+import { Tags } from './Tags';
 import { useParams } from 'react-router-dom';
+import { IoLocationSharp } from 'react-icons/io5';
 import { DataStore } from '@aws-amplify/datastore';
 import hashnode from '../assets/images/hashnode.jpg';
 import { GIGS } from '../models';
@@ -20,7 +23,7 @@ export const Singlecard = () => {
     func();
   }, []);
 
-  console.log(gig);
+  // console.log(gig);
   return (
     <>
       {Loading ? (
@@ -31,8 +34,8 @@ export const Singlecard = () => {
             <img className="mr-5 mb-6 lg:w-40" src={hashnode} alt="company logo" />
             <div className="self-center">
               <div className="text-xl font-bold mb-4 text-center"> {gig.position}</div>
-              <p className="text-l font-bold mb-4 text-center single--company">
-                <i className="fa-solid fa-location-dot"></i> {gig.company} <span>. </span>
+              <p className="flex items-center gap-1 text-l font-bold mb-4 text-center single--company">
+                <IoLocationSharp /> {gig.company} <span>. </span>
                 {gig.location} <span>. </span> {gig.type}
               </p>
               <div className="border border-gray-200 w-full mb-6"></div>
@@ -46,19 +49,10 @@ export const Singlecard = () => {
           <div className="flex flex-col md:flex-row lg:flex-row justify-between items-center tags">
             <ul className="flex mb-5 items-center justify-start tags">
               <h2 className="mr-5 font-bold text-l"> Tags : </h2>
-              <li className="bg-black text-white rounded-xl px-3 py-1 mr-2">
-                <a href="#">{gig.tags[0]}</a>
-              </li>
-              {gig.tags[1] && (
-                <li className="bg-black text-white rounded-xl px-3 py-1 mr-2">
-                  <a href="#">{gig.tags[1]}</a>
-                </li>
-              )}
-              {gig.tags[2] && (
-                <li className="bg-black text-white rounded-xl px-3 py-1 mr-2">
-                  <a href="#">{gig.tags[2]}</a>
-                </li>
-              )}
+              {/* Call in Tags Component */}
+              {gig.tags.map((tag) => {
+                return <Tags key={tag} tag={tag} />;
+              })}
             </ul>
             <button className="self-center mt-5 lg:mt-0 md:mt-0">
               <a href="#">Apply</a>
@@ -71,22 +65,6 @@ export const Singlecard = () => {
   );
 };
 
-// {/* Ul starts here */}
-{
-  /* <ul className="flex mb-5 items-center justify-center tags">
-  <li className="bg-black text-white rounded-xl px-3 py-1 mr-2">
-    <a href="#">{gig.tags[0]}</a>
-  </li>
-  {gig.tags[1] && (
-    <li className="bg-black text-white rounded-xl px-3 py-1 mr-2">
-      <a href="#">{gig.tags[1]}</a>
-    </li>
-  )}
-  {gig.tags[2] && (
-    <li className="bg-black text-white rounded-xl px-3 py-1 mr-2">
-      <a href="#">{gig.tags[2]}</a>
-    </li>
-  )}
-</ul>; */
-}
-// {/* <div className="border border-gray-200 w-full mb-6"></div> */}
+//export default withAuthenticator(Singlecard);
+// {user.attributes.email}
+// <button onClick={signOut}> SignOut </button>

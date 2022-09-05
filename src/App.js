@@ -1,9 +1,6 @@
 import './assets/App.css';
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import { Homepage } from './components/Homepage';
-import { Singlecard } from './components/Singlecard';
-import { Navbar } from './components/Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { FindJobs, Home, SingleJob } from './Pages';
 // import { DataStore } from '@aws-amplify/datastore';
 // import { GIGS } from './models';
 
@@ -18,27 +15,19 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 //   "description": "Lorem ipsum dolor sit amet"
 // })
 // );
+//{ signOut, user } props
 
-function App({ signOut, user }) {
+function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <div className="App">
-              <Navbar />
-              <Homepage />
-              {user.attributes.email}
-              <button onClick={signOut}> SignOut </button>
-            </div>
-          }
-        />
-        <Route path="/gigs/:gigsId" element={<Singlecard />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/gigs/:gigsId" element={<SingleJob />} />
+        <Route path="/jobs" element={<FindJobs />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
 //this will make it , so that you need to login to acess the app component
-export default withAuthenticator(App);
+export default App;

@@ -32,6 +32,7 @@ export const Jobs = () => {
               id={job.id}
               position={job.position}
               location={job.location}
+              img={null}
               type={job.type}
               company={job.company}
               tags={job.tags}
