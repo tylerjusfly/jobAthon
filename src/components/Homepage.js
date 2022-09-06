@@ -3,7 +3,7 @@ import Heroimg from '../assets/images/oppo-unsplash.jpg';
 import amplify from '../assets/images/amplify.jpg';
 import hashnode from '../assets/images/hashnode.jpg';
 // import hashnodeSvg from '../assets/images/hashnode-svg.svg';
-import '../assets/hero.css';
+import '../assets/css/hero.css';
 import { Jobs } from './Jobs';
 
 export const Homepage = () => {

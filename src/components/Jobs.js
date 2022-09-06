@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/jobs.css';
+import '../assets/css/jobs.css';
 import { JobCard } from './Jobs-Card';
 import { DataStore, Predicates, SortDirection } from '@aws-amplify/datastore';
 import { GIGS } from '../models';
@@ -32,7 +32,6 @@ export const Jobs = () => {
               id={job.id}
               position={job.position}
               location={job.location}
-              img={null}
               type={job.type}
               company={job.company}
               tags={job.tags}

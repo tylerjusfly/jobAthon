@@ -1,12 +1,12 @@
 import React from 'react';
-import '../assets/single.css';
-//import { withAuthenticator } from '@aws-amplify/ui-react';
-import { Tags } from './Tags';
+import '../assets/css/single.css';
+import { Tags } from './reusables/Tags';
 import { useParams } from 'react-router-dom';
 import { IoLocationSharp } from 'react-icons/io5';
 import { DataStore } from '@aws-amplify/datastore';
 import hashnode from '../assets/images/hashnode.jpg';
 import { GIGS } from '../models';
+import Button from './reusables/Button';
 
 export const Singlecard = () => {
   const [gig, setGig] = React.useState({});
@@ -54,9 +54,7 @@ export const Singlecard = () => {
                 return <Tags key={tag} tag={tag} />;
               })}
             </ul>
-            <button className="self-center mt-5 lg:mt-0 md:mt-0">
-              <a href="#">Apply</a>
-            </button>
+            <Button />
             {/* Tags Ends here */}
           </div>
         </div>

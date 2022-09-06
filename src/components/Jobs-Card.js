@@ -1,6 +1,6 @@
 import React from 'react';
 import google from '../assets/images/google-svg.svg';
-import { Tags } from './Tags';
+import { Tags } from './reusables/Tags';
 import { IoLocationSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 

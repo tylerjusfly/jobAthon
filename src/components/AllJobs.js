@@ -1,12 +1,31 @@
 import React from 'react';
-import '../assets/alljobs.css';
+import '../assets/css/alljobs.css';
 import { Link } from 'react-router-dom';
+import google from '../assets/images/amplify.jpg';
 import { DataStore, Predicates, SortDirection } from '@aws-amplify/datastore';
 import { GIGS } from '../models';
+import { DefaultSearchField } from './reusables/Search';
 
+const JobsComponent = ({ id, position, location, company, type, img = google }) => {
+  return (
+    <div className="flex gap-10 bg-gray-50 border border-gray-200 rounded p-6 Alljobs">
+      <img src={img} alt="design" height={50} />
+      <div>
+        <h2 className="font-bold">
+          <Link to={`/gigs/${id}`}>{position}</Link>
+        </h2>
+        <p className="details">
+          {location} <span className="text-2xl font-bold">. </span>
+          {company} <span className="text-2xl font-bold">. </span> {type}
+        </p>
+      </div>
+    </div>
+  );
+};
 export const AllJobs = () => {
   const [allJobs, setAllJobs] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
+  const [searchTerm, setSearchTerm] = React.useState('');
 
   React.useEffect(() => {
     const AllJobs = async () => {
@@ -21,7 +40,9 @@ export const AllJobs = () => {
     AllJobs();
   }, []);
 
-  console.log(allJobs);
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
   return (
     <>
@@ -29,28 +50,30 @@ export const AllJobs = () => {
         loading ? (
           <div>Loading... </div>
         ) : (
-          allJobs.map((job) => {
-            return (
-              <div
-                className="flex gap-10 bg-gray-50 border border-gray-200 rounded p-6 Alljobs"
-                key={job.id}>
-                <img
-                  src="https://thehub-io.imgix.net/files/s3/20220819101045-c4f5b8bf59acf0e822ee0be69f7c4f97.jpg?fit=crop&w=300&h=300&q=60"
-                  alt="design"
-                  height={50}
-                />
-                <div>
-                  <h2 className="font-bold">
-                    <Link to={`/gigs/${job.id}`}>{job.position}</Link>
-                  </h2>
-                  <p className="details">
-                    {job.location} <span className="text-2xl font-bold">. </span>
-                    {job.company} <span className="text-2xl font-bold">. </span> {job.type}
-                  </p>
-                </div>
-              </div>
-            );
-          })
+          <>
+            <div className="border-solid">
+              <DefaultSearchField value={searchTerm} onChange={handleChange} />
+            </div>
+            {allJobs
+              .filter((job) => {
+                const searchvalue = searchTerm.toLowerCase();
+                const title = job.position.toLowerCase();
+
+                return title.startsWith(searchvalue);
+              })
+              .map((job) => {
+                return (
+                  <JobsComponent
+                    key={job.id}
+                    id={job.id}
+                    position={job.position}
+                    location={job.location}
+                    company={job.company}
+                    type={job.type}
+                  />
+                );
+              })}
+          </>
         )
 
         //end

@@ -1,6 +1,7 @@
-import './assets/App.css';
+import './assets/css/App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { FindJobs, Home, SingleJob } from './Pages';
+import { CreateJob, FindJobs, Home, SingleJob } from './Pages';
+import { Authenticator } from '@aws-amplify/ui-react';
 // import { DataStore } from '@aws-amplify/datastore';
 // import { GIGS } from './models';
 
@@ -19,13 +20,17 @@ import { FindJobs, Home, SingleJob } from './Pages';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/gigs/:gigsId" element={<SingleJob />} />
-        <Route path="/jobs" element={<FindJobs />} />
-      </Routes>
-    </BrowserRouter>
+    <Authenticator.Provider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/gigs/:gigsId" element={<SingleJob />} />
+          <Route path="/jobs" element={<FindJobs />} />
+          <Route path="/create-job" element={<CreateJob />} />
+          <Route path="*" element={<h1>Page Not Found</h1>} />
+        </Routes>
+      </BrowserRouter>
+    </Authenticator.Provider>
   );
 }
 

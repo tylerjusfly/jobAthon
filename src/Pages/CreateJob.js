@@ -1,16 +1,16 @@
 import React from 'react';
+import { CreateJobs } from '../components/CreateJobs';
 import { Footer } from '../components/reusables/Footer';
 import { Navbar } from '../components/reusables/Navbar';
-import { Homepage } from '../components/Homepage';
 
-const Home = () => {
+const CreateJob = () => {
   return (
-    <div className="App">
+    <>
       <Navbar />
-      <Homepage />
+      <CreateJobs />
       <Footer />
-    </div>
+    </>
   );
 };
 
-export default Home;
+export default CreateJob;
