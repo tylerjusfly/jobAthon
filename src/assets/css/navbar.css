@@ -41,6 +41,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 .dropdown .dropp-btn {
   padding: 14px;

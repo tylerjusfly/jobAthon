@@ -1,26 +1,26 @@
 {
-    "staging": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-jobathon-staging-152222-authRole",
-            "UnauthRoleArn": "arn:aws:iam::427346604536:role/amplify-jobathon-staging-152222-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::427346604536:role/amplify-jobathon-staging-152222-authRole",
-            "Region": "us-east-1",
-            "DeploymentBucketName": "amplify-jobathon-staging-152222-deployment",
-            "UnauthRoleName": "amplify-jobathon-staging-152222-unauthRole",
-            "StackName": "amplify-jobathon-staging-152222",
-            "StackId": "arn:aws:cloudformation:us-east-1:427346604536:stack/amplify-jobathon-staging-152222/e0992ac0-2a09-11ed-9e92-0afef75d0ff5",
-            "AmplifyAppId": "d3lg8mtb40hvzw"
-        },
-        "categories": {
-            "auth": {
-                "JobAthon": {}
-            },
-            "hosting": {
-                "amplifyhosting": {
-                    "appId": "d3lg8mtb40hvzw",
-                    "type": "cicd"
-                }
-            }
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-jobathon-staging-152222-authRole",
+      "UnauthRoleArn": "arn:aws:iam::427346604536:role/amplify-jobathon-staging-152222-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::427346604536:role/amplify-jobathon-staging-152222-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-jobathon-staging-152222-deployment",
+      "UnauthRoleName": "amplify-jobathon-staging-152222-unauthRole",
+      "StackName": "amplify-jobathon-staging-152222",
+      "StackId": "arn:aws:cloudformation:us-east-1:427346604536:stack/amplify-jobathon-staging-152222/e0992ac0-2a09-11ed-9e92-0afef75d0ff5",
+      "AmplifyAppId": "d3lg8mtb40hvzw"
+    },
+    "categories": {
+      "auth": {
+        "JobAthon": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3lg8mtb40hvzw",
+          "type": "cicd"
         }
+      }
     }
+  }
 }

@@ -26,7 +26,7 @@ const MyPostedJobs = ({ user }) => {
   return (
     <>
       <Navbar />
-      <h2>My Posted Jobs</h2>
+      <h2 className="m-4 font-bold text-center">My Posted Jobs</h2>
       <div>
         {loading ? (
           <div>Loading...</div>

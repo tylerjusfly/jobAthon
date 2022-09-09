@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import "../assets/css/single.css";
 import { Tags } from "./reusables/Tags";
 import { useParams } from "react-router-dom";
@@ -9,13 +9,14 @@ import hashnode from "../assets/images/hashnode.jpg";
 import { useNavigate } from "react-router-dom";
 import { JobsModel } from "../models";
 import Button from "./reusables/Button";
+import { useAuthenticator } from "@aws-amplify/ui-react";
 
 export const Singlecard = () => {
-  const [gig, setGig] = React.useState({});
-  const [Loading, setLoading] = React.useState(true);
+  const [gig, setGig] = useState({});
+  const [Loading, setLoading] = useState(true);
   const { gigsId } = useParams();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const func = async () => {
       const post = await DataStore.query(JobsModel, gigsId);
       setGig(post);
@@ -24,6 +25,12 @@ export const Singlecard = () => {
 
     func();
   }, []);
+
+  const { user } = useAuthenticator((context) => [context.user]);
+
+  const isPost = user && user.attributes.email === gig.owner ? true : false;
+
+  const btnCheck = !user || user.attributes.email === gig.owner ? true : false;
 
   const navigate = useNavigate();
 
@@ -40,13 +47,16 @@ export const Singlecard = () => {
         <h2> Loading ...</h2>
       ) : (
         <div className="p-2 mt-10 m-2 lg:m-5 lg:p-5">
-          <button
-            onClick={() => {
-              deleteFunc(gig.id);
-            }}
-          >
-            <AiFillDelete />
-          </button>
+          {isPost && (
+            <button
+              className="text-xl bg-black text-white p-2 rounded-full"
+              onClick={() => {
+                deleteFunc(gig.id);
+              }}
+            >
+              <AiFillDelete />
+            </button>
+          )}
           <div className="flex flex-col gap-5 Single items-center justify-center md:flex-row lg:flex-col">
             <img
               className="mr-5 mb-6 lg:w-40"
@@ -78,7 +88,7 @@ export const Singlecard = () => {
                 return <Tags key={tag} tag={tag} />;
               })}
             </ul>
-            <Button />
+            <Button value={btnCheck} />
             {/* Tags Ends here */}
           </div>
         </div>
