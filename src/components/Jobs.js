@@ -2,14 +2,14 @@ import React from 'react';
 import '../assets/css/jobs.css';
 import { JobCard } from './Jobs-Card';
 import { DataStore, Predicates, SortDirection } from '@aws-amplify/datastore';
-import { GIGS } from '../models';
+import { JobsModel } from '../models';
 
 export const Jobs = () => {
   const [jobs, setJobs] = React.useState([]);
 
   React.useEffect(() => {
     const func = async () => {
-      const gigs = await DataStore.query(GIGS, Predicates.ALL, {
+      const gigs = await DataStore.query(JobsModel, Predicates.ALL, {
         page: 0,
         limit: 6,
         sort: (s) => s.createdAt(SortDirection.DESCENDING)
@@ -33,6 +33,7 @@ export const Jobs = () => {
               position={job.position}
               location={job.location}
               type={job.type}
+              img={job.logo}
               company={job.company}
               tags={job.tags}
             />

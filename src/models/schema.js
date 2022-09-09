@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "GIGS": {
-            "name": "GIGS",
+        "JobsModel": {
+            "name": "JobsModel",
             "fields": {
                 "id": {
                     "name": "id",
@@ -10,10 +10,10 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "title": {
-                    "name": "title",
+                "owner": {
+                    "name": "owner",
                     "isArray": false,
-                    "type": "String",
+                    "type": "AWSEmail",
                     "isRequired": true,
                     "attributes": []
                 },
@@ -53,6 +53,13 @@ export const schema = {
                     "attributes": [],
                     "isArrayNullable": false
                 },
+                "logo": {
+                    "name": "logo",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "description": {
                     "name": "description",
                     "isArray": false,
@@ -78,7 +85,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "GIGS",
+            "pluralName": "JobsModels",
             "attributes": [
                 {
                     "type": "model",
@@ -105,5 +112,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "ac5f2327c77d8a1fdb6f1e1265ccb1ed"
+    "version": "608fcb7cf4515395a0e189e97ddd1f97"
 };

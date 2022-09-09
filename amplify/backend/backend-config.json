@@ -52,5 +52,12 @@
         }
       }
     }
+  },
+  "storage": {
+    "s3jobathonstoragefcd74aab": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
   }
 }

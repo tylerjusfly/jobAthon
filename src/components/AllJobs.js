@@ -3,13 +3,13 @@ import '../assets/css/alljobs.css';
 import { Link } from 'react-router-dom';
 import google from '../assets/images/amplify.jpg';
 import { DataStore, Predicates, SortDirection } from '@aws-amplify/datastore';
-import { GIGS } from '../models';
+import { JobsModel } from '../models';
 import { DefaultSearchField } from './reusables/Search';
 
-const JobsComponent = ({ id, position, location, company, type, img = google }) => {
+const JobsComponent = ({ id, position, location, company, type, img }) => {
   return (
     <div className="flex gap-10 bg-gray-50 border border-gray-200 rounded p-6 Alljobs">
-      <img src={img} alt="design" height={50} />
+      <img src={img ? img : google} alt="design" height={50} />
       <div>
         <h2 className="font-bold">
           <Link to={`/gigs/${id}`}>{position}</Link>
@@ -29,7 +29,7 @@ export const AllJobs = () => {
 
   React.useEffect(() => {
     const AllJobs = async () => {
-      const gigs = await DataStore.query(GIGS, Predicates.ALL, {
+      const gigs = await DataStore.query(JobsModel, Predicates.ALL, {
         sort: (s) => s.createdAt(SortDirection.DESCENDING)
       });
 
@@ -59,7 +59,7 @@ export const AllJobs = () => {
                 const searchvalue = searchTerm.toLowerCase();
                 const title = job.position.toLowerCase();
 
-                return title.startsWith(searchvalue);
+                return title.includes(searchvalue);
               })
               .map((job) => {
                 return (
@@ -68,6 +68,7 @@ export const AllJobs = () => {
                     id={job.id}
                     position={job.position}
                     location={job.location}
+                    img={job.logo}
                     company={job.company}
                     type={job.type}
                   />

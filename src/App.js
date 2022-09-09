@@ -1,21 +1,9 @@
+import React from 'react';
 import './assets/css/App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { CreateJob, FindJobs, Home, SingleJob } from './Pages';
+import { Auth, CreateJob, FindJobs, Home, SingleJob } from './Pages';
 import { Authenticator } from '@aws-amplify/ui-react';
-// import { DataStore } from '@aws-amplify/datastore';
-// import { GIGS } from './models';
 
-// await DataStore.save(
-//   new GIGS({
-//   "title": "Lorem ipsum dolor sit amet",
-//   "position": "Fullstack developer",
-//   "location": "Lagos State",
-//   "type": "Fulltime",
-//   "company": "Lorem ipsum dolor sit amet",
-//   "tags":  ['laravel', 'eloquent', 'SQL'],
-//   "description": "Lorem ipsum dolor sit amet"
-// })
-// );
 //{ signOut, user } props
 
 function App() {
@@ -24,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Auth />} />
           <Route path="/gigs/:gigsId" element={<SingleJob />} />
           <Route path="/jobs" element={<FindJobs />} />
           <Route path="/create-job" element={<CreateJob />} />

@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3jobathonstoragefcd74aab",
+  "bucketName": "jobathon-storage-fcd74aab",
+  "policyUUID": "2b410cec",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

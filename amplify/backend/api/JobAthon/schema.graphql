@@ -1,11 +1,12 @@
-type GIGS @model @auth(rules: [{allow: public}]) {
+type JobsModel @model @auth(rules: [{allow: public}]) {
   id: ID!
-  title: String!
+  owner: AWSEmail!
   position: String!
   location: String!
   type: String!
   company: String!
   tags: [String!]!
+  logo: String
   description: String!
 }
  

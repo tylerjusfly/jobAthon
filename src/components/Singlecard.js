@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { IoLocationSharp } from 'react-icons/io5';
 import { DataStore } from '@aws-amplify/datastore';
 import hashnode from '../assets/images/hashnode.jpg';
-import { GIGS } from '../models';
+import { JobsModel } from '../models';
 import Button from './reusables/Button';
 
 export const Singlecard = () => {
@@ -15,7 +15,7 @@ export const Singlecard = () => {
 
   React.useEffect(() => {
     const func = async () => {
-      const post = await DataStore.query(GIGS, gigsId);
+      const post = await DataStore.query(JobsModel, gigsId);
       setGig(post);
       setLoading(false);
     };
@@ -31,7 +31,11 @@ export const Singlecard = () => {
       ) : (
         <div className="p-2 mt-10 m-2 lg:m-5 lg:p-5">
           <div className="flex flex-col gap-5 Single items-center justify-center md:flex-row lg:flex-col">
-            <img className="mr-5 mb-6 lg:w-40" src={hashnode} alt="company logo" />
+            <img
+              className="mr-5 mb-6 lg:w-40"
+              src={gig.logo ? gig.logo : hashnode}
+              alt="company logo"
+            />
             <div className="self-center">
               <div className="text-xl font-bold mb-4 text-center"> {gig.position}</div>
               <p className="flex items-center gap-1 text-l font-bold mb-4 text-center single--company">
