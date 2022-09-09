@@ -1,5 +1,5 @@
-@import './config.scss';
-@import url('https://fonts.googleapis.com/css2?family=Marvel:wght@700&display=swap');
+@import "./config.scss";
+@import url("https://fonts.googleapis.com/css2?family=Marvel:wght@700&display=swap");
 
 * {
   margin: 0;
@@ -15,11 +15,14 @@
 .Navbar {
   background-image: $NavColor;
   color: #f5f5f5;
+  font-size: 18px;
+  font-weight: 800;
   @include flexFunc(row);
   padding: 15px;
 
   .Nav-logo {
     align-self: center;
+    color: #f5f5f5;
   }
   .Nav-logo span {
     font-size: 27px;
@@ -37,6 +40,37 @@
     border: 1px solid #222;
     padding: 8px;
     font-weight: 800;
-    font-family: 'Marvel', 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: "Marvel", "Open Sans", "Helvetica Neue", sans-serif;
+  }
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  .dropp-btn {
+    padding: 14px;
+  }
+
+  .dropdown--content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    //z-index: -1;
+    & .links {
+      color: #000;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+    }
+  }
+  &:hover .dropdown--content {
+    display: block;
+  }
+  &:hover .dropp-btn {
+    background-color: #3e8e41;
   }
 }

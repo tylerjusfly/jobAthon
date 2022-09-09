@@ -6,9 +6,7 @@ const Auth = () => {
   const { authStatus } = useAuthenticator((context) => [context.authStatus]);
   const navigate = useNavigate();
 
-  return (
-    <>{authStatus !== "authenticated" ? <Authenticator /> : navigate("/")}</>
-  );
+  return <>{authStatus !== "authenticated" ? <Authenticator /> : navigate("/")}</>;
 };
 
 export default Auth;

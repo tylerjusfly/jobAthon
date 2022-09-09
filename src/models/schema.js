@@ -8,42 +8,42 @@ export const schema = {
           isArray: false,
           type: "ID",
           isRequired: true,
-          attributes: [],
+          attributes: []
         },
         owner: {
           name: "owner",
           isArray: false,
           type: "AWSEmail",
           isRequired: true,
-          attributes: [],
+          attributes: []
         },
         position: {
           name: "position",
           isArray: false,
           type: "String",
           isRequired: true,
-          attributes: [],
+          attributes: []
         },
         location: {
           name: "location",
           isArray: false,
           type: "String",
           isRequired: true,
-          attributes: [],
+          attributes: []
         },
         type: {
           name: "type",
           isArray: false,
           type: "String",
           isRequired: true,
-          attributes: [],
+          attributes: []
         },
         company: {
           name: "company",
           isArray: false,
           type: "String",
           isRequired: true,
-          attributes: [],
+          attributes: []
         },
         tags: {
           name: "tags",
@@ -51,21 +51,21 @@ export const schema = {
           type: "String",
           isRequired: true,
           attributes: [],
-          isArrayNullable: false,
+          isArrayNullable: false
         },
         logo: {
           name: "logo",
           isArray: false,
           type: "String",
           isRequired: false,
-          attributes: [],
+          attributes: []
         },
         description: {
           name: "description",
           isArray: false,
           type: "String",
           isRequired: true,
-          attributes: [],
+          attributes: []
         },
         createdAt: {
           name: "createdAt",
@@ -73,7 +73,7 @@ export const schema = {
           type: "AWSDateTime",
           isRequired: false,
           attributes: [],
-          isReadOnly: true,
+          isReadOnly: true
         },
         updatedAt: {
           name: "updatedAt",
@@ -81,15 +81,15 @@ export const schema = {
           type: "AWSDateTime",
           isRequired: false,
           attributes: [],
-          isReadOnly: true,
-        },
+          isReadOnly: true
+        }
       },
       syncable: true,
       pluralName: "JobsModels",
       attributes: [
         {
           type: "model",
-          properties: {},
+          properties: {}
         },
         {
           type: "auth",
@@ -97,15 +97,15 @@ export const schema = {
             rules: [
               {
                 allow: "public",
-                operations: ["create", "update", "delete", "read"],
-              },
-            ],
-          },
-        },
-      ],
-    },
+                operations: ["create", "update", "delete", "read"]
+              }
+            ]
+          }
+        }
+      ]
+    }
   },
   enums: {},
   nonModels: {},
-  version: "608fcb7cf4515395a0e189e97ddd1f97",
+  version: "608fcb7cf4515395a0e189e97ddd1f97"
 };

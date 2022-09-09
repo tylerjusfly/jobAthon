@@ -1,14 +1,7 @@
 import React from "react";
 import "./assets/css/App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {
-  Auth,
-  CreateJob,
-  FindJobs,
-  Home,
-  MyPostedJobs,
-  SingleJob,
-} from "./Pages";
+import { Auth, CreateJob, FindJobs, Home, MyPostedJobs, SingleJob } from "./Pages";
 import { Authenticator } from "@aws-amplify/ui-react";
 
 //{ signOut, user } props

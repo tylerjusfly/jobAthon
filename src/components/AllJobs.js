@@ -30,7 +30,7 @@ export const AllJobs = () => {
   React.useEffect(() => {
     const AllJobs = async () => {
       const gigs = await DataStore.query(JobsModel, Predicates.ALL, {
-        sort: (s) => s.createdAt(SortDirection.DESCENDING),
+        sort: (s) => s.createdAt(SortDirection.DESCENDING)
       });
 
       setAllJobs(gigs);

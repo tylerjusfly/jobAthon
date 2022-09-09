@@ -43,21 +43,13 @@ export const Singlecard = () => {
           <button
             onClick={() => {
               deleteFunc(gig.id);
-            }}
-          >
+            }}>
             <AiFillDelete />
           </button>
           <div className="flex flex-col gap-5 Single items-center justify-center md:flex-row lg:flex-col">
-            <img
-              className="mr-5 mb-6 lg:w-40"
-              src={gig.logo ? gig.logo : hashnode}
-              alt="company logo"
-            />
+            <img className="mr-5 mb-6 lg:w-40" src={gig.logo ? gig.logo : hashnode} alt="company logo" />
             <div className="self-center">
-              <div className="text-xl font-bold mb-4 text-center">
-                {" "}
-                {gig.position}
-              </div>
+              <div className="text-xl font-bold mb-4 text-center"> {gig.position}</div>
               <p className="flex items-center gap-1 text-l font-bold mb-4 text-center single--company">
                 <IoLocationSharp /> {gig.company} <span>. </span>
                 {gig.location} <span>. </span> {gig.type}

@@ -5,8 +5,10 @@
 }
 
 .Navbar {
-  background-image: linear-gradient(to left, rgb(30, 75, 115), rgba(40, 109, 144, 0.443));
+  background-image: linear-gradient(90deg, rgb(0, 0, 0) 43%, rgb(207, 211, 212) 100%);
   color: #f5f5f5;
+  font-size: 18px;
+  font-weight: 800;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -14,6 +16,7 @@
 }
 .Navbar .Nav-logo {
   align-self: center;
+  color: #f5f5f5;
 }
 .Navbar .Nav-logo span {
   font-size: 27px;
@@ -33,4 +36,32 @@
   padding: 8px;
   font-weight: 800;
   font-family: "Marvel", "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown .dropp-btn {
+  padding: 14px;
+}
+.dropdown .dropdown--content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+.dropdown .dropdown--content .links {
+  color: #000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+.dropdown:hover .dropdown--content {
+  display: block;
+}
+.dropdown:hover .dropp-btn {
+  background-color: #3e8e41;
 }

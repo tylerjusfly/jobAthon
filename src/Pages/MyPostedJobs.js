@@ -13,9 +13,7 @@ const MyPostedJobs = ({ user }) => {
 
   React.useEffect(() => {
     const MyAllJobs = async () => {
-      const gigs = await DataStore.query(JobsModel, (c) =>
-        c.owner("contains", user.attributes.email)
-      );
+      const gigs = await DataStore.query(JobsModel, (c) => c.owner("contains", user.attributes.email));
 
       setMyJobs(gigs);
       setLoading(false);

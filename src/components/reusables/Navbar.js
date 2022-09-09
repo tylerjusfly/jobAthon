@@ -14,8 +14,19 @@ export const Navbar = () => {
       <ul className="Nav-List">
         {route === "authenticated" ? (
           <>
-            <li>
-              <button onClick={signOut}>SignOut</button>
+            <li className="dropdown">
+              <span className="dropp--btn">Profile</span>
+              <div className="dropdown--content">
+                <Link className="links" to="myjobs">
+                  My Jobs
+                </Link>
+                <Link className="links" to="applied">
+                  Applied Jobs
+                </Link>
+                <span className="links" onClick={signOut}>
+                  SignOut
+                </span>
+              </div>
             </li>
             <li>
               <Link to="/create-job">Post Job</Link>

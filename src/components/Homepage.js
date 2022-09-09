@@ -9,10 +9,7 @@ import { Jobs } from "./Jobs";
 export const Homepage = () => {
   return (
     <section className="Hero">
-      <div className="Hero-text">
-        Connecting dots between Developers , tech enthusiasts with Tech
-        companies
-      </div>
+      <div className="Hero-text">Connecting dots between Developers , tech enthusiasts with Tech companies</div>
       <div className="Hero-image">
         <img src={Heroimg} alt="woman with Dog" />
       </div>
