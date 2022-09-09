@@ -12,7 +12,7 @@ export const Jobs = () => {
       const gigs = await DataStore.query(JobsModel, Predicates.ALL, {
         page: 0,
         limit: 6,
-        sort: (s) => s.createdAt(SortDirection.DESCENDING)
+        sort: (s) => s.createdAt(SortDirection.DESCENDING),
       });
       setJobs(gigs);
     };

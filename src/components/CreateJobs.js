@@ -16,7 +16,7 @@ const CreateJobs = ({ user }) => {
     type: "",
     tags: "",
     logo: "",
-    description: ""
+    description: "",
   });
 
   const [postMessage, setPostMesssage] = React.useState();
@@ -26,7 +26,7 @@ const CreateJobs = ({ user }) => {
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
-        [name]: type === "checkbox" ? checked : value
+        [name]: type === "checkbox" ? checked : value,
       };
     });
   }
@@ -45,7 +45,7 @@ const CreateJobs = ({ user }) => {
           company: formData.company,
           logo: formData.logo,
           tags: formData.tags.split(","),
-          description: formData.description
+          description: formData.description,
         })
       );
       setPostMesssage("Data Stored");
@@ -62,9 +62,15 @@ const CreateJobs = ({ user }) => {
 
   return (
     <div className="block grid p-6 rounded-lg shadow-lg bg-white max-w-xl mx-auto">
-      <form className="md:grid md:grid-cols-2 lg:grid lg:grid-cols-2 gap-x-10" onSubmit={submitForm}>
+      <form
+        className="md:grid md:grid-cols-2 lg:grid lg:grid-cols-2 gap-x-10"
+        onSubmit={submitForm}
+      >
         <div className="form-group mb-6">
-          <label htmlFor="owner" className="form-label inline-block mb-2 text-gray-700 font-semibold">
+          <label
+            htmlFor="owner"
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Email
           </label>
           <input
@@ -77,7 +83,10 @@ const CreateJobs = ({ user }) => {
           />
         </div>
         <div className="mb-6">
-          <label htmlFor="position" className="form-label inline-block mb-2 text-gray-700 font-semibold">
+          <label
+            htmlFor="position"
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Position
           </label>
           <input
@@ -90,7 +99,10 @@ const CreateJobs = ({ user }) => {
           />
         </div>
         <div className="mb-6">
-          <label htmlFor="location" className="form-label inline-block mb-2 text-gray-700 font-semibold">
+          <label
+            htmlFor="location"
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Location
           </label>
           <input
@@ -103,7 +115,10 @@ const CreateJobs = ({ user }) => {
           />
         </div>
         <div className="mb-6">
-          <label htmlFor="type" className="form-label inline-block mb-2 text-gray-700 font-semibold">
+          <label
+            htmlFor="type"
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Type
           </label>
           <select
@@ -111,7 +126,8 @@ const CreateJobs = ({ user }) => {
             id="type"
             value={formData.type}
             name="type"
-            onChange={handleChange}>
+            onChange={handleChange}
+          >
             <option value="">-- Choose Job Type --</option>
             <option value="Full-time">Full-time</option>
             <option value="Part-time">Part-time</option>
@@ -120,7 +136,10 @@ const CreateJobs = ({ user }) => {
           </select>
         </div>
         <div className="mb-6">
-          <label htmlFor="company" className="form-label inline-block mb-2 text-gray-700 font-semibold">
+          <label
+            htmlFor="company"
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Company
           </label>
           <input
@@ -145,7 +164,10 @@ const CreateJobs = ({ user }) => {
           />
         </div> */}
         <div className="mb-6">
-          <label htmlFor="logo" className="form-label inline-block mb-2 text-gray-700 font-semibold">
+          <label
+            htmlFor="logo"
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Company Logo
           </label>
           <input
@@ -157,7 +179,10 @@ const CreateJobs = ({ user }) => {
           />
         </div>
         <div className="mb-6">
-          <label htmlFor="tags" className="form-label inline-block mb-2 text-gray-700 font-semibold">
+          <label
+            htmlFor="tags"
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Tags - Seprate by commas
           </label>
           <input
@@ -170,7 +195,10 @@ const CreateJobs = ({ user }) => {
           />
         </div>
         <div className="mb-6">
-          <label htmlFor="description" className="form-label inline-block mb-2 text-gray-700 font-semibold">
+          <label
+            htmlFor="description"
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Description
           </label>
           <textarea
