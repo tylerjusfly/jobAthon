@@ -9,7 +9,6 @@ import { Footer } from "../components/reusables/Footer";
 const MyPostedJobs = ({ user }) => {
   const [myJobs, setMyJobs] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
-  //const { user } = useAuthenticator((context) => [context.user]);
 
   React.useEffect(() => {
     const MyAllJobs = async () => {
@@ -21,8 +20,6 @@ const MyPostedJobs = ({ user }) => {
 
     MyAllJobs();
   }, []);
-
-  console.log(myJobs);
 
   return (
     <>
