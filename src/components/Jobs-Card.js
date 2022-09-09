@@ -1,10 +1,18 @@
-import React from 'react';
-import google from '../assets/images/google-svg.svg';
-import { Tags } from './reusables/Tags';
-import { IoLocationSharp } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
+import React from "react";
+import google from "../assets/images/google-svg.svg";
+import { Tags } from "./reusables/Tags";
+import { IoLocationSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
-export const JobCard = ({ id, position, location, type, company, tags, img }) => {
+export const JobCard = ({
+  id,
+  position,
+  location,
+  type,
+  company,
+  tags,
+  img,
+}) => {
   return (
     <div className="bg-gray-50 border border-gray-200 rounded p-6">
       <div className="flex">
@@ -22,7 +30,11 @@ export const JobCard = ({ id, position, location, type, company, tags, img }) =>
             })}
           </ul>
           <div className="text-lg mt-4 company--card">
-            <img className="company--img" src={img ? img : google} alt="google" />{' '}
+            <img
+              className="company--img"
+              src={img ? img : google}
+              alt="google"
+            />{" "}
             <span>{company}</span>
           </div>
         </div>

@@ -1,14 +1,14 @@
-import React from 'react';
-import '../assets/css/single.css';
-import { Tags } from './reusables/Tags';
-import { useParams } from 'react-router-dom';
-import { IoLocationSharp } from 'react-icons/io5';
-import { AiFillDelete } from 'react-icons/ai';
-import { DataStore } from '@aws-amplify/datastore';
-import hashnode from '../assets/images/hashnode.jpg';
-import { useNavigate } from 'react-router-dom';
-import { JobsModel } from '../models';
-import Button from './reusables/Button';
+import React from "react";
+import "../assets/css/single.css";
+import { Tags } from "./reusables/Tags";
+import { useParams } from "react-router-dom";
+import { IoLocationSharp } from "react-icons/io5";
+import { AiFillDelete } from "react-icons/ai";
+import { DataStore } from "@aws-amplify/datastore";
+import hashnode from "../assets/images/hashnode.jpg";
+import { useNavigate } from "react-router-dom";
+import { JobsModel } from "../models";
+import Button from "./reusables/Button";
 
 export const Singlecard = () => {
   const [gig, setGig] = React.useState({});
@@ -31,7 +31,7 @@ export const Singlecard = () => {
   const deleteFunc = async (id) => {
     const todelete = await DataStore.query(JobsModel, id);
     DataStore.delete(todelete);
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -43,7 +43,8 @@ export const Singlecard = () => {
           <button
             onClick={() => {
               deleteFunc(gig.id);
-            }}>
+            }}
+          >
             <AiFillDelete />
           </button>
           <div className="flex flex-col gap-5 Single items-center justify-center md:flex-row lg:flex-col">
@@ -53,7 +54,10 @@ export const Singlecard = () => {
               alt="company logo"
             />
             <div className="self-center">
-              <div className="text-xl font-bold mb-4 text-center"> {gig.position}</div>
+              <div className="text-xl font-bold mb-4 text-center">
+                {" "}
+                {gig.position}
+              </div>
               <p className="flex items-center gap-1 text-l font-bold mb-4 text-center single--company">
                 <IoLocationSharp /> {gig.company} <span>. </span>
                 {gig.location} <span>. </span> {gig.type}

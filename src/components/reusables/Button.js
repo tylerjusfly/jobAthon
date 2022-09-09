@@ -1,6 +1,6 @@
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import React from "react";
+import { Link } from "react-router-dom";
 const Button = ({ signIn }) => {
   //console.log(user.attributes.email);
   //const { authStatus } = useAuthenticator((context) => [context.authStatus]);

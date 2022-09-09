@@ -1,16 +1,17 @@
-import React from 'react';
-import Heroimg from '../assets/images/oppo-unsplash.jpg';
-import amplify from '../assets/images/amplify.jpg';
-import hashnode from '../assets/images/hashnode.jpg';
+import React from "react";
+import Heroimg from "../assets/images/oppo-unsplash.jpg";
+import amplify from "../assets/images/amplify.jpg";
+import hashnode from "../assets/images/hashnode.jpg";
 // import hashnodeSvg from '../assets/images/hashnode-svg.svg';
-import '../assets/css/hero.css';
-import { Jobs } from './Jobs';
+import "../assets/css/hero.css";
+import { Jobs } from "./Jobs";
 
 export const Homepage = () => {
   return (
     <section className="Hero">
       <div className="Hero-text">
-        Connecting dots between Developers , tech enthusiasts with Tech companies
+        Connecting dots between Developers , tech enthusiasts with Tech
+        companies
       </div>
       <div className="Hero-image">
         <img src={Heroimg} alt="woman with Dog" />

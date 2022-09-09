@@ -1,7 +1,7 @@
-import React from 'react';
-import { useAuthenticator } from '@aws-amplify/ui-react';
-import { Link } from 'react-router-dom';
-import '../../assets/css/navbar.css';
+import React from "react";
+import { useAuthenticator } from "@aws-amplify/ui-react";
+import { Link } from "react-router-dom";
+import "../../assets/css/navbar.css";
 
 export const Navbar = () => {
   const { route } = useAuthenticator((context) => [context.route]);
@@ -12,7 +12,7 @@ export const Navbar = () => {
         <Link to="/"> JobAThon</Link>
       </h2>
       <ul className="Nav-List">
-        {route === 'authenticated' ? (
+        {route === "authenticated" ? (
           <>
             <li>
               <button onClick={signOut}>SignOut</button>

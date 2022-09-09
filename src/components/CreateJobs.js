@@ -1,22 +1,22 @@
-import React from 'react';
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { FormButton } from './reusables/FormButton';
-import { DataStore } from '@aws-amplify/datastore';
-import { JobsModel } from '../models';
+import React from "react";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FormButton } from "./reusables/FormButton";
+import { DataStore } from "@aws-amplify/datastore";
+import { JobsModel } from "../models";
 //import { useNavigate } from 'react-router-dom';
 
 const CreateJobs = ({ user }) => {
   const [formData, setFormData] = React.useState({
     owner: user.attributes.email,
-    position: '',
-    location: '',
-    company: '',
-    type: '',
-    tags: '',
-    logo: '',
-    description: ''
+    position: "",
+    location: "",
+    company: "",
+    type: "",
+    tags: "",
+    logo: "",
+    description: "",
   });
 
   const [postMessage, setPostMesssage] = React.useState();
@@ -26,7 +26,7 @@ const CreateJobs = ({ user }) => {
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
-        [name]: type === 'checkbox' ? checked : value
+        [name]: type === "checkbox" ? checked : value,
       };
     });
   }
@@ -44,14 +44,14 @@ const CreateJobs = ({ user }) => {
           type: formData.type,
           company: formData.company,
           logo: formData.logo,
-          tags: formData.tags.split(','),
-          description: formData.description
+          tags: formData.tags.split(","),
+          description: formData.description,
         })
       );
-      setPostMesssage('Data Stored');
+      setPostMesssage("Data Stored");
     } catch (error) {
       console.log(error);
-      setPostMesssage('data not Saved');
+      setPostMesssage("data not Saved");
     }
   }
 
@@ -64,11 +64,13 @@ const CreateJobs = ({ user }) => {
     <div className="block grid p-6 rounded-lg shadow-lg bg-white max-w-xl mx-auto">
       <form
         className="md:grid md:grid-cols-2 lg:grid lg:grid-cols-2 gap-x-10"
-        onSubmit={submitForm}>
+        onSubmit={submitForm}
+      >
         <div className="form-group mb-6">
           <label
             htmlFor="owner"
-            className="form-label inline-block mb-2 text-gray-700 font-semibold">
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Email
           </label>
           <input
@@ -83,7 +85,8 @@ const CreateJobs = ({ user }) => {
         <div className="mb-6">
           <label
             htmlFor="position"
-            className="form-label inline-block mb-2 text-gray-700 font-semibold">
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Position
           </label>
           <input
@@ -98,7 +101,8 @@ const CreateJobs = ({ user }) => {
         <div className="mb-6">
           <label
             htmlFor="location"
-            className="form-label inline-block mb-2 text-gray-700 font-semibold">
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Location
           </label>
           <input
@@ -113,7 +117,8 @@ const CreateJobs = ({ user }) => {
         <div className="mb-6">
           <label
             htmlFor="type"
-            className="form-label inline-block mb-2 text-gray-700 font-semibold">
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Type
           </label>
           <select
@@ -121,7 +126,8 @@ const CreateJobs = ({ user }) => {
             id="type"
             value={formData.type}
             name="type"
-            onChange={handleChange}>
+            onChange={handleChange}
+          >
             <option value="">-- Choose Job Type --</option>
             <option value="Full-time">Full-time</option>
             <option value="Part-time">Part-time</option>
@@ -132,7 +138,8 @@ const CreateJobs = ({ user }) => {
         <div className="mb-6">
           <label
             htmlFor="company"
-            className="form-label inline-block mb-2 text-gray-700 font-semibold">
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Company
           </label>
           <input
@@ -159,7 +166,8 @@ const CreateJobs = ({ user }) => {
         <div className="mb-6">
           <label
             htmlFor="logo"
-            className="form-label inline-block mb-2 text-gray-700 font-semibold">
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Company Logo
           </label>
           <input
@@ -173,7 +181,8 @@ const CreateJobs = ({ user }) => {
         <div className="mb-6">
           <label
             htmlFor="tags"
-            className="form-label inline-block mb-2 text-gray-700 font-semibold">
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Tags - Seprate by commas
           </label>
           <input
@@ -188,7 +197,8 @@ const CreateJobs = ({ user }) => {
         <div className="mb-6">
           <label
             htmlFor="description"
-            className="form-label inline-block mb-2 text-gray-700 font-semibold">
+            className="form-label inline-block mb-2 text-gray-700 font-semibold"
+          >
             Description
           </label>
           <textarea

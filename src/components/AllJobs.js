@@ -1,10 +1,10 @@
-import React from 'react';
-import '../assets/css/alljobs.css';
-import { Link } from 'react-router-dom';
-import google from '../assets/images/amplify.jpg';
-import { DataStore, Predicates, SortDirection } from '@aws-amplify/datastore';
-import { JobsModel } from '../models';
-import { DefaultSearchField } from './reusables/Search';
+import React from "react";
+import "../assets/css/alljobs.css";
+import { Link } from "react-router-dom";
+import google from "../assets/images/amplify.jpg";
+import { DataStore, Predicates, SortDirection } from "@aws-amplify/datastore";
+import { JobsModel } from "../models";
+import { DefaultSearchField } from "./reusables/Search";
 
 const JobsComponent = ({ id, position, location, company, type, img }) => {
   return (
@@ -25,12 +25,12 @@ const JobsComponent = ({ id, position, location, company, type, img }) => {
 export const AllJobs = () => {
   const [allJobs, setAllJobs] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
-  const [searchTerm, setSearchTerm] = React.useState('');
+  const [searchTerm, setSearchTerm] = React.useState("");
 
   React.useEffect(() => {
     const AllJobs = async () => {
       const gigs = await DataStore.query(JobsModel, Predicates.ALL, {
-        sort: (s) => s.createdAt(SortDirection.DESCENDING)
+        sort: (s) => s.createdAt(SortDirection.DESCENDING),
       });
 
       setAllJobs(gigs);
