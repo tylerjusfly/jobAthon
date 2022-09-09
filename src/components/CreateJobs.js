@@ -144,7 +144,7 @@ const CreateJobs = ({ user }) => {
             placeholder="company Name"
           />
         </div>
-        <div className="mb-6">
+        {/* <div className="mb-6">
           <label
             htmlFor="logo"
             className="form-label inline-block mb-2 text-gray-700 font-semibold">
@@ -155,8 +155,8 @@ const CreateJobs = ({ user }) => {
             className="form-control block w-full px-3 py-2 rounded border border-solid border-black font-medium"
             name="logo"
           />
-        </div>
-        {/* <div className="mb-6">
+        </div> */}
+        <div className="mb-6">
           <label
             htmlFor="logo"
             className="form-label inline-block mb-2 text-gray-700 font-semibold">
@@ -169,7 +169,7 @@ const CreateJobs = ({ user }) => {
             value={formData.logo}
             onChange={handleChange}
           />
-        </div> */}
+        </div>
         <div className="mb-6">
           <label
             htmlFor="tags"

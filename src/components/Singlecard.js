@@ -3,8 +3,10 @@ import '../assets/css/single.css';
 import { Tags } from './reusables/Tags';
 import { useParams } from 'react-router-dom';
 import { IoLocationSharp } from 'react-icons/io5';
+import { AiFillDelete } from 'react-icons/ai';
 import { DataStore } from '@aws-amplify/datastore';
 import hashnode from '../assets/images/hashnode.jpg';
+import { useNavigate } from 'react-router-dom';
 import { JobsModel } from '../models';
 import Button from './reusables/Button';
 
@@ -23,13 +25,27 @@ export const Singlecard = () => {
     func();
   }, []);
 
-  // console.log(gig);
+  const navigate = useNavigate();
+
+  //delete Function
+  const deleteFunc = async (id) => {
+    const todelete = await DataStore.query(JobsModel, id);
+    DataStore.delete(todelete);
+    navigate('/');
+  };
+
   return (
     <>
       {Loading ? (
         <h2> Loading ...</h2>
       ) : (
         <div className="p-2 mt-10 m-2 lg:m-5 lg:p-5">
+          <button
+            onClick={() => {
+              deleteFunc(gig.id);
+            }}>
+            <AiFillDelete />
+          </button>
           <div className="flex flex-col gap-5 Single items-center justify-center md:flex-row lg:flex-col">
             <img
               className="mr-5 mb-6 lg:w-40"
@@ -66,7 +82,3 @@ export const Singlecard = () => {
     </>
   );
 };
-
-//export default withAuthenticator(Singlecard);
-// {user.attributes.email}
-// <button onClick={signOut}> SignOut </button>
