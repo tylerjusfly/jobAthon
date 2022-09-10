@@ -3,8 +3,6 @@ import { DataStore } from "@aws-amplify/datastore";
 import { JobsModel } from "../models";
 import { MyJobs } from "../components/MyJobs";
 import { withAuthenticator } from "@aws-amplify/ui-react";
-import { Navbar } from "../components/reusables/Navbar";
-import { Footer } from "../components/reusables/Footer";
 
 const MyPostedJobs = ({ user }) => {
   const [myJobs, setMyJobs] = React.useState([]);
@@ -25,7 +23,6 @@ const MyPostedJobs = ({ user }) => {
 
   return (
     <>
-      <Navbar />
       <h2 className="m-4 font-bold text-center">My Posted Jobs</h2>
       <div>
         {loading ? (
@@ -46,7 +43,6 @@ const MyPostedJobs = ({ user }) => {
           })
         )}
       </div>
-      <Footer />
     </>
   );
 };

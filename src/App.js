@@ -3,6 +3,7 @@ import "./assets/css/App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   Auth,
+  Layout,
   CreateJob,
   FindJobs,
   Home,
@@ -18,13 +19,15 @@ function App() {
     <Authenticator.Provider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Auth />} />
-          <Route path="/gigs/:gigsId" element={<SingleJob />} />
-          <Route path="/jobs" element={<FindJobs />} />
-          <Route path="/create-job" element={<CreateJob />} />
-          <Route path="/myjobs" element={<MyPostedJobs />} />
-          <Route path="*" element={<h1>Page Not Found</h1>} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/signup" element={<Auth />} />
+            <Route path="/gigs/:gigsId" element={<SingleJob />} />
+            <Route path="/jobs" element={<FindJobs />} />
+            <Route path="/create-job" element={<CreateJob />} />
+            <Route path="/myjobs" element={<MyPostedJobs />} />
+            <Route path="*" element={<h1>Page Not Found</h1>} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </Authenticator.Provider>

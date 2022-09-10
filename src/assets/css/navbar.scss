@@ -17,28 +17,19 @@
   color: #f5f5f5;
   font-size: 18px;
   font-weight: 800;
-  @include flexFunc(row);
-  padding: 15px;
+  // @include flexFunc(row);
+  // padding: 15px;
 
-  .Nav-logo {
-    align-self: center;
-    color: #f5f5f5;
-  }
-  .Nav-logo span {
-    font-size: 27px;
-    color: rgba(40, 109, 144, 0.443);
-  }
-
-  .Nav-List {
-    @include flexFunc(row);
-    gap: 30px;
-    padding-right: 15px;
-    list-style: none;
-    align-self: center;
-  }
+  // .Nav-List {
+  //   @include flexFunc(row);
+  //   gap: 30px;
+  //   padding-right: 15px;
+  //   list-style: none;
+  //   align-self: center;
+  // }
   & li {
     border: 1px solid #222;
-    padding: 8px;
+    padding: 6px;
     font-weight: 800;
     font-family: "Marvel", "Open Sans", "Helvetica Neue", sans-serif;
   }

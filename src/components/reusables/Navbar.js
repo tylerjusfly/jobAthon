@@ -1,17 +1,18 @@
 import React from "react";
 import { useAuthenticator } from "@aws-amplify/ui-react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/images/logo.svg";
 import "../../assets/css/navbar.css";
 
 export const Navbar = () => {
   const { route } = useAuthenticator((context) => [context.route]);
   const { signOut } = useAuthenticator((context) => [context.user]);
   return (
-    <div className="Navbar">
-      <h2 className="Nav-logo">
-        <Link to="/"> JobAThon</Link>
-      </h2>
-      <ul className="Nav-List">
+    <nav className="Navbar flex justify-between items-center mx-auto px-4 py-4">
+      <Link to="/">
+        <img src={logo} alt="logo" width={35} />
+      </Link>
+      <ul className="Nav-List flex items-center gap-6 mr-4">
         {route === "authenticated" ? (
           <>
             <li className="dropdown">
@@ -41,6 +42,6 @@ export const Navbar = () => {
           <Link to="/jobs">Find Jobs</Link>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 };

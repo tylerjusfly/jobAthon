@@ -5,8 +5,7 @@ const Button = ({ value }) => {
   const hexColor = {
     color: "#f5f5f5",
   };
-  //console.log(user.attributes.email);
-  //const { authStatus } = useAuthenticator((context) => [context.authStatus]);
+
   return (
     <>
       {value ? (

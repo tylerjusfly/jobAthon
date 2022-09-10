@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FormButton } from "./reusables/FormButton";
 import { DataStore } from "@aws-amplify/datastore";
 import { JobsModel } from "../models";
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const CreateJobs = ({ user }) => {
   const [formData, setFormData] = React.useState({
@@ -31,12 +31,12 @@ const CreateJobs = ({ user }) => {
     });
   }
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   async function submitForm(event) {
     try {
       event.preventDefault();
-      await DataStore.save(
+      const job = await DataStore.save(
         new JobsModel({
           owner: formData.owner,
           position: formData.position,
@@ -48,7 +48,7 @@ const CreateJobs = ({ user }) => {
           description: formData.description,
         })
       );
-      setPostMesssage("Data Stored");
+      navigate(`/gigs/${job.id}`);
     } catch (error) {
       console.log(error);
       setPostMesssage("data not Saved");
