@@ -1,7 +1,8 @@
 import React from "react";
-import google from "../assets/images/google-svg.svg";
+import google from "../assets/images/amplify.jpg";
 import { Tags } from "./reusables/Tags";
 import { IoLocationSharp } from "react-icons/io5";
+import { Storage } from "@aws-amplify/storage";
 import { Link } from "react-router-dom";
 
 export const JobCard = ({
@@ -13,6 +14,17 @@ export const JobCard = ({
   tags,
   img,
 }) => {
+  const [image, setImage] = React.useState();
+
+  React.useEffect(() => {
+    const func = async () => {
+      const accessUrl = await Storage.get(img);
+      setImage(accessUrl);
+    };
+
+    func();
+  }, []);
+
   return (
     <div className="bg-gray-50 border border-gray-200 rounded p-6">
       <div className="flex">
@@ -32,8 +44,8 @@ export const JobCard = ({
           <div className="text-lg mt-4 company--card">
             <img
               className="company--img"
-              src={img ? img : google}
-              alt="google"
+              src={image ? image : google}
+              alt="company"
             />{" "}
             <span>{company}</span>
           </div>

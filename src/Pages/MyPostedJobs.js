@@ -8,6 +8,8 @@ const MyPostedJobs = ({ user }) => {
   const [myJobs, setMyJobs] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 
+  //console.log(user);
+
   React.useEffect(() => {
     const MyAllJobs = async () => {
       const gigs = await DataStore.query(JobsModel, (c) =>

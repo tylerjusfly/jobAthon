@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/css/single.css";
 import { Tags } from "./reusables/Tags";
 import { useParams } from "react-router-dom";
 import { IoLocationSharp } from "react-icons/io5";
 import { AiFillDelete } from "react-icons/ai";
 import { DataStore } from "@aws-amplify/datastore";
+import { Storage } from "@aws-amplify/storage";
 import hashnode from "../assets/images/hashnode.jpg";
 import { useNavigate } from "react-router-dom";
 import { JobsModel } from "../models";
@@ -13,12 +14,15 @@ import { useAuthenticator } from "@aws-amplify/ui-react";
 
 export const Singlecard = () => {
   const [gig, setGig] = useState({});
+  const [logourl, setLogoUrl] = useState("");
   const [Loading, setLoading] = useState(true);
   const { gigsId } = useParams();
 
   useEffect(() => {
     const func = async () => {
       const post = await DataStore.query(JobsModel, gigsId);
+      const accessUrl = await Storage.get(post.logo);
+      setLogoUrl(accessUrl);
       setGig(post);
       setLoading(false);
     };
@@ -30,7 +34,7 @@ export const Singlecard = () => {
 
   const isPost = user && user.attributes.email === gig.owner ? true : false;
 
-  const btnCheck = !user || user.attributes.email === gig.owner ? true : false;
+  let btnCheck = !user || user.attributes.email === gig.owner ? true : false;
 
   const navigate = useNavigate();
 
@@ -60,7 +64,7 @@ export const Singlecard = () => {
           <div className="flex flex-col gap-5 Single items-center justify-center md:flex-row lg:flex-col">
             <img
               className="mr-5 mb-6 lg:w-40"
-              src={gig.logo ? gig.logo : hashnode}
+              src={logourl ? logourl : hashnode}
               alt="company logo"
             />
             <div className="self-center">

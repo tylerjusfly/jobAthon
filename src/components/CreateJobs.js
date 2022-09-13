@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FormButton } from "./reusables/FormButton";
 import { DataStore } from "@aws-amplify/datastore";
+import { Storage } from "@aws-amplify/storage";
 import { JobsModel } from "../models";
 import { useNavigate } from "react-router-dom";
 
@@ -15,9 +16,9 @@ const CreateJobs = ({ user }) => {
     company: "",
     type: "",
     tags: "",
-    logo: "",
     description: "",
   });
+  const [selectedFile, setSelectedFile] = React.useState();
 
   const [postMessage, setPostMesssage] = React.useState();
 
@@ -36,6 +37,11 @@ const CreateJobs = ({ user }) => {
   async function submitForm(event) {
     try {
       event.preventDefault();
+      const filename = `${Date.now()}-${selectedFile.name}`;
+      const accessUrl = await Storage.put(filename, selectedFile, {
+        contentType: selectedFile.type,
+      });
+      //console.log("accessUrl", accessUrl);
       const job = await DataStore.save(
         new JobsModel({
           owner: formData.owner,
@@ -43,7 +49,7 @@ const CreateJobs = ({ user }) => {
           location: formData.location,
           type: formData.type,
           company: formData.company,
-          logo: formData.logo,
+          logo: accessUrl.key,
           tags: formData.tags.split(","),
           description: formData.description,
         })
@@ -151,18 +157,6 @@ const CreateJobs = ({ user }) => {
             placeholder="company Name"
           />
         </div>
-        {/* <div className="mb-6">
-          <label
-            htmlFor="logo"
-            className="form-label inline-block mb-2 text-gray-700 font-semibold">
-            Company Logo
-          </label>
-          <input
-            type="file"
-            className="form-control block w-full px-3 py-2 rounded border border-solid border-black font-medium"
-            name="logo"
-          />
-        </div> */}
         <div className="mb-6">
           <label
             htmlFor="logo"
@@ -171,13 +165,13 @@ const CreateJobs = ({ user }) => {
             Company Logo
           </label>
           <input
-            type="text"
+            type="file"
             className="form-control block w-full px-3 py-2 rounded border border-solid border-black font-medium"
             name="logo"
-            value={formData.logo}
-            onChange={handleChange}
+            onChange={(e) => setSelectedFile(e.target.files[0])}
           />
         </div>
+
         <div className="mb-6">
           <label
             htmlFor="tags"

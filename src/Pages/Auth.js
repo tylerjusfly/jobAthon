@@ -14,7 +14,3 @@ const Auth = () => {
 };
 
 export default Auth;
-
-// import { Storage } from "@aws-amplify/storage"
-
-// await Storage.put("test.txt", "Hello");

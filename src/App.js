@@ -11,6 +11,7 @@ import {
   SingleJob,
 } from "./Pages";
 import { Authenticator } from "@aws-amplify/ui-react";
+import { ApplyForm } from "./components/ApplyForm";
 
 //{ signOut, user } props
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/signup" element={<Auth />} />
             <Route path="/gigs/:gigsId" element={<SingleJob />} />
             <Route path="/jobs" element={<FindJobs />} />
+            <Route path="/apply" element={<ApplyForm />} />
             <Route path="/create-job" element={<CreateJob />} />
             <Route path="/myjobs" element={<MyPostedJobs />} />
             <Route path="*" element={<h1>Page Not Found</h1>} />

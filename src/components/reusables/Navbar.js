@@ -21,7 +21,7 @@ export const Navbar = () => {
                 <Link className="links" to="myjobs">
                   My Jobs
                 </Link>
-                <Link className="links" to="applied">
+                <Link className="links" to="/apply">
                   Applied Jobs
                 </Link>
                 <span className="links" onClick={signOut}>

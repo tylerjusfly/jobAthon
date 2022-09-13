@@ -3,13 +3,24 @@ import "../assets/css/alljobs.css";
 import { Link } from "react-router-dom";
 import google from "../assets/images/amplify.jpg";
 import { DataStore, Predicates, SortDirection } from "@aws-amplify/datastore";
+import { Storage } from "@aws-amplify/storage";
 import { JobsModel } from "../models";
 import { DefaultSearchField } from "./reusables/Search";
 
 const JobsComponent = ({ id, position, location, company, type, img }) => {
+  const [image, setImage] = React.useState();
+  React.useEffect(() => {
+    const func = async () => {
+      const accessUrl = await Storage.get(img);
+      setImage(accessUrl);
+    };
+
+    func();
+  }, []);
+
   return (
     <div className="flex gap-10 bg-gray-50 border border-gray-200 rounded p-6 Alljobs">
-      <img src={img ? img : google} alt="design" height={50} />
+      <img src={image ? image : google} alt="design" height={50} />
       <div>
         <h2 className="font-bold">
           <Link to={`/gigs/${id}`}>{position}</Link>
@@ -40,6 +51,7 @@ export const AllJobs = () => {
     AllJobs();
   }, []);
 
+  //console.log(allJobs);
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };

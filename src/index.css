@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  h2 {
+  h2,
+  h3 {
     font-family: "Trebuchet MS", system-ui, sans-serif;
   }
 }
