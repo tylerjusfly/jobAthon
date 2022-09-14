@@ -76,7 +76,6 @@ const CreateJobs = ({ user }) => {
 
   return (
     <div className="block grid p-6 rounded-lg shadow-lg bg-white max-w-xl mx-auto">
-      <pre>{JSON.stringify(formData, undefined, 2)}</pre>
       <form
         className="md:grid md:grid-cols-2 lg:grid lg:grid-cols-2 gap-x-10"
         onSubmit={submitForm}
