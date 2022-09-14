@@ -1,18 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Storage } from "@aws-amplify/storage";
 import google from "../assets/images/amplify.jpg";
+import { useImageLink } from "./hooks/useImageLink";
 
 export const MyJobs = ({ id, position, location, company, type, img }) => {
-  const [image, setImage] = React.useState();
-  React.useEffect(() => {
-    const func = async () => {
-      const accessUrl = await Storage.get(img);
-      setImage(accessUrl);
-    };
-
-    func();
-  }, []);
+  const { image } = useImageLink(img);
 
   return (
     <div className="flex gap-10 bg-gray-50 border border-gray-200 rounded p-6 Alljobs">

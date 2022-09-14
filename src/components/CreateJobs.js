@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withAuthenticator } from "@aws-amplify/ui-react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { FormButton } from "./reusables/FormButton";
 import { DataStore } from "@aws-amplify/datastore";
 import { Storage } from "@aws-amplify/storage";
 import { JobsModel } from "../models";
 import { useNavigate } from "react-router-dom";
+import { useFormErrors } from "./hooks/useFormErrors";
 
 const CreateJobs = ({ user }) => {
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     owner: user.attributes.email,
     position: "",
     location: "",
@@ -18,9 +17,10 @@ const CreateJobs = ({ user }) => {
     tags: "",
     description: "",
   });
-  const [selectedFile, setSelectedFile] = React.useState();
+  const [selectedFile, setSelectedFile] = useState();
 
-  const [postMessage, setPostMesssage] = React.useState();
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
 
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
@@ -34,40 +34,49 @@ const CreateJobs = ({ user }) => {
 
   const navigate = useNavigate();
 
-  async function submitForm(event) {
-    try {
-      event.preventDefault();
-      const filename = `${Date.now()}-${selectedFile.name}`;
-      const accessUrl = await Storage.put(filename, selectedFile, {
-        contentType: selectedFile.type,
-      });
-      //console.log("accessUrl", accessUrl);
-      const job = await DataStore.save(
-        new JobsModel({
-          owner: formData.owner,
-          position: formData.position,
-          location: formData.location,
-          type: formData.type,
-          company: formData.company,
-          logo: accessUrl.key,
-          tags: formData.tags.split(","),
-          description: formData.description,
-        })
-      );
-      navigate(`/gigs/${job.id}`);
-    } catch (error) {
-      console.log(error);
-      setPostMesssage("data not Saved");
+  useEffect(() => {
+    async function postForm() {
+      try {
+        const filename = `${Date.now()}-${selectedFile.name}`;
+        const accessUrl = await Storage.put(filename, selectedFile, {
+          contentType: selectedFile.type,
+        });
+        //console.log("accessUrl", accessUrl);
+        const job = await DataStore.save(
+          new JobsModel({
+            owner: formData.owner,
+            position: formData.position,
+            location: formData.location,
+            type: formData.type,
+            company: formData.company,
+            logo: accessUrl.key,
+            tags: formData.tags.split(","),
+            description: formData.description,
+          })
+        );
+
+        navigate(`/gigs/${job.id}`);
+      } catch (error) {
+        console.log(error);
+      }
     }
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      postForm();
+    }
+  }, [formErrors]);
+
+  async function submitForm(event) {
+    event.preventDefault();
+    //set form errors
+    setFormErrors(validate(formData, selectedFile));
+    setIsSubmit(true);
   }
 
-  //console.log(formData);
-  const notify = () => {
-    toast(postMessage);
-  };
+  const { validate } = useFormErrors();
 
   return (
     <div className="block grid p-6 rounded-lg shadow-lg bg-white max-w-xl mx-auto">
+      <pre>{JSON.stringify(formData, undefined, 2)}</pre>
       <form
         className="md:grid md:grid-cols-2 lg:grid lg:grid-cols-2 gap-x-10"
         onSubmit={submitForm}
@@ -103,6 +112,7 @@ const CreateJobs = ({ user }) => {
             className="form-control block w-full px-3 py-2 rounded border border-solid border-black font-medium"
             placeholder="positon"
           />
+          <p className="text-red-600 font-bold mt-2">{formErrors.position}</p>
         </div>
         <div className="mb-6">
           <label
@@ -119,6 +129,7 @@ const CreateJobs = ({ user }) => {
             className="form-control block w-full px-3 py-2 rounded border border-solid border-black font-medium"
             placeholder="Remote, Country, State"
           />
+          <p className="text-red-600 font-bold mt-2">{formErrors.location}</p>
         </div>
         <div className="mb-6">
           <label
@@ -140,6 +151,7 @@ const CreateJobs = ({ user }) => {
             <option value="Contract">Contract</option>
             <option value="Internship">Internship</option>
           </select>
+          <p className="text-red-600 font-bold mt-2">{formErrors.type}</p>
         </div>
         <div className="mb-6">
           <label
@@ -156,6 +168,7 @@ const CreateJobs = ({ user }) => {
             onChange={handleChange}
             placeholder="company Name"
           />
+          <p className="text-red-600 font-bold mt-2">{formErrors.company}</p>
         </div>
         <div className="mb-6">
           <label
@@ -170,6 +183,7 @@ const CreateJobs = ({ user }) => {
             name="logo"
             onChange={(e) => setSelectedFile(e.target.files[0])}
           />
+          <p className="text-red-600 font-bold mt-2">{formErrors.logo}</p>
         </div>
 
         <div className="mb-6">
@@ -187,6 +201,7 @@ const CreateJobs = ({ user }) => {
             onChange={handleChange}
             placeholder="Javascript, NodeJs, mySQL"
           />
+          <p className="text-red-600 font-bold mt-2">{formErrors.tags}</p>
         </div>
         <div className="mb-6">
           <label
@@ -202,10 +217,12 @@ const CreateJobs = ({ user }) => {
             className="form-control block w-full px-3 py-2 rounded border border-solid border-black font-medium"
             placeholder="Include Salary, Tasks, Expectations"
           />
+          <p className="text-red-600 font-bold mt-2 mb-2">
+            {formErrors.description}
+          </p>
         </div>
         <div className="mb-6">
-          <FormButton onClick={notify} />
-          <ToastContainer />
+          <FormButton />
         </div>
       </form>
     </div>

@@ -7,7 +7,7 @@ export const ApplyForm = () => {
       <form className="gap-x-10">
         <div className="form-group mb-6">
           <label
-            htmlFor="owner"
+            htmlFor="applicant"
             className="form-label inline-block mb-2 text-gray-700 font-semibold"
           >
             Email
@@ -22,7 +22,7 @@ export const ApplyForm = () => {
         </div>
         <div className="mb-6">
           <label
-            htmlFor="position"
+            htmlFor="JobId"
             className="form-label inline-block mb-2 text-gray-700 font-semibold"
           >
             Job Id
@@ -38,21 +38,21 @@ export const ApplyForm = () => {
         </div>
         <div className="mb-6">
           <label
-            htmlFor="location"
+            htmlFor="Full-name"
             className="form-label inline-block mb-2 text-gray-700 font-semibold"
           >
             Full-Name
           </label>
           <input
             type="text"
-            name="location"
+            name="Full-name"
             className="form-control block w-full px-3 py-2 rounded border border-solid border-black font-medium"
             placeholder="John Doe.."
           />
         </div>
         <div className="mb-6">
           <label
-            htmlFor="logo"
+            htmlFor="resume"
             className="form-label inline-block mb-2 text-gray-700 font-semibold"
           >
             Resume
@@ -60,7 +60,7 @@ export const ApplyForm = () => {
           <input
             type="file"
             className="form-control block w-full px-3 py-2 rounded border border-solid border-black font-medium"
-            name="logo"
+            name="resume"
           />
         </div>
 

@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Marvel:wght@700&display=swap");
+
+.paginationBttns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  gap: 20px;
+  height: 40px;
+  list-style: none;
+}
+
+.paginationBttns a {
+  font-family: "Marvel", "Trebuchet MS", "Lucida Sans Unicode", "Open Sans";
+  padding: 0.5rem;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: #f5f5f5;
+  background: #000;
+}
+
+.activeBttn a {
+  color: #f5f5f5;
+  background: #000;
+}
+
+/* .prevBttn {
+  height: 3.2rem;
+  color: #f5f5f5;
+  background: #000;
+  padding: 0.5rem;
+  border-radius: 5px;
+  align-items: center;
+} */
+
+@media only screen and (max-width: 400px) {
+  .paginationBttns {
+    flex-direction: column;
+  }
+}

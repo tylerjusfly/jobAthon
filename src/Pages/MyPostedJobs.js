@@ -3,12 +3,12 @@ import { DataStore } from "@aws-amplify/datastore";
 import { JobsModel } from "../models";
 import { MyJobs } from "../components/MyJobs";
 import { withAuthenticator } from "@aws-amplify/ui-react";
+import ReactPaginate from "react-paginate";
+import { usePaginate } from "../components/hooks/usePaginate";
 
 const MyPostedJobs = ({ user }) => {
   const [myJobs, setMyJobs] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
-
-  //console.log(user);
 
   React.useEffect(() => {
     const MyAllJobs = async () => {
@@ -23,6 +23,8 @@ const MyPostedJobs = ({ user }) => {
     MyAllJobs();
   }, []);
 
+  const { pagecount, pageChange, displayJobs } = usePaginate(myJobs);
+
   return (
     <>
       <h2 className="m-4 font-bold text-center">My Posted Jobs</h2>
@@ -30,7 +32,7 @@ const MyPostedJobs = ({ user }) => {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          myJobs.map((job) => {
+          displayJobs.map((job) => {
             return (
               <MyJobs
                 key={job.id}
@@ -45,6 +47,15 @@ const MyPostedJobs = ({ user }) => {
           })
         )}
       </div>
+      <ReactPaginate
+        previousLabel={"Prev"}
+        nextLabel={"Next"}
+        pageCount={pagecount}
+        onPageChange={pageChange}
+        containerClassName={"paginationBttns"}
+        disabledClassName={"paginateDisabled"}
+        activeClassName={"activeBttn"}
+      />
     </>
   );
 };

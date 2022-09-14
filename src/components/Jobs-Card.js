@@ -2,8 +2,8 @@ import React from "react";
 import google from "../assets/images/amplify.jpg";
 import { Tags } from "./reusables/Tags";
 import { IoLocationSharp } from "react-icons/io5";
-import { Storage } from "@aws-amplify/storage";
 import { Link } from "react-router-dom";
+import { useImageLink } from "./hooks/useImageLink";
 
 export const JobCard = ({
   id,
@@ -14,16 +14,7 @@ export const JobCard = ({
   tags,
   img,
 }) => {
-  const [image, setImage] = React.useState();
-
-  React.useEffect(() => {
-    const func = async () => {
-      const accessUrl = await Storage.get(img);
-      setImage(accessUrl);
-    };
-
-    func();
-  }, []);
+  const { image } = useImageLink(img);
 
   return (
     <div className="bg-gray-50 border border-gray-200 rounded p-6">

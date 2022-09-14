@@ -1,22 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "../assets/css/alljobs.css";
+import "../assets/css/paginate.css";
 import { Link } from "react-router-dom";
 import google from "../assets/images/amplify.jpg";
 import { DataStore, Predicates, SortDirection } from "@aws-amplify/datastore";
-import { Storage } from "@aws-amplify/storage";
 import { JobsModel } from "../models";
 import { DefaultSearchField } from "./reusables/Search";
+import { useImageLink } from "./hooks/useImageLink";
+import ReactPaginate from "react-paginate";
+import { usePaginate } from "./hooks/usePaginate";
 
 const JobsComponent = ({ id, position, location, company, type, img }) => {
-  const [image, setImage] = React.useState();
-  React.useEffect(() => {
-    const func = async () => {
-      const accessUrl = await Storage.get(img);
-      setImage(accessUrl);
-    };
-
-    func();
-  }, []);
+  const { image } = useImageLink(img);
 
   return (
     <div className="flex gap-10 bg-gray-50 border border-gray-200 rounded p-6 Alljobs">
@@ -34,9 +29,9 @@ const JobsComponent = ({ id, position, location, company, type, img }) => {
   );
 };
 export const AllJobs = () => {
-  const [allJobs, setAllJobs] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
-  const [searchTerm, setSearchTerm] = React.useState("");
+  const [allJobs, setAllJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
   React.useEffect(() => {
     const AllJobs = async () => {
@@ -51,7 +46,8 @@ export const AllJobs = () => {
     AllJobs();
   }, []);
 
-  //console.log(allJobs);
+  const { pagecount, pageChange, displayJobs } = usePaginate(allJobs);
+
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -66,7 +62,7 @@ export const AllJobs = () => {
             <div className="border-solid">
               <DefaultSearchField value={searchTerm} onChange={handleChange} />
             </div>
-            {allJobs
+            {displayJobs
               .filter((job) => {
                 const searchvalue = searchTerm.toLowerCase();
                 const title = job.position.toLowerCase();
@@ -86,6 +82,15 @@ export const AllJobs = () => {
                   />
                 );
               })}
+            <ReactPaginate
+              previousLabel={"Prev"}
+              nextLabel={"Next"}
+              pageCount={pagecount}
+              onPageChange={pageChange}
+              containerClassName={"paginationBttns"}
+              disabledClassName={"paginateDisabled"}
+              activeClassName={"activeBttn"}
+            />
           </>
         )
 
