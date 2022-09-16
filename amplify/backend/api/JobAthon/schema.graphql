@@ -1,3 +1,12 @@
+type ApplicantsModel @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  jobId: ID!
+  applicantMail: String!
+  linkedIn: String!
+  resumePdf: String!
+  fullname: String!
+}
+
 type JobsModel @model @auth(rules: [{allow: public}]) {
   id: ID!
   owner: AWSEmail!

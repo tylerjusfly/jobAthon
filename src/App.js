@@ -6,33 +6,35 @@ import {
   Layout,
   CreateJob,
   FindJobs,
-  Home,
   MyPostedJobs,
   SingleJob,
 } from "./Pages";
 import { Authenticator } from "@aws-amplify/ui-react";
-import { ApplyForm } from "./components/ApplyForm";
+import ApplyForm from "./components/ApplyForm";
+import { Homepage } from "./components/Homepage";
+import { Applicants } from "./components/Applicants";
 
 //{ signOut, user } props
 
 function App() {
   return (
-    <Authenticator.Provider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Authenticator.Provider>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+            <Route index element={<Homepage />} />
             <Route path="/signup" element={<Auth />} />
             <Route path="/gigs/:gigsId" element={<SingleJob />} />
             <Route path="/jobs" element={<FindJobs />} />
-            <Route path="/apply" element={<ApplyForm />} />
+            <Route path="/apply/:gigsId" element={<ApplyForm />} />
+            <Route path="/applicants/:gigsId" element={<Applicants />} />
             <Route path="/create-job" element={<CreateJob />} />
             <Route path="/myjobs" element={<MyPostedJobs />} />
             <Route path="*" element={<h1>Page Not Found</h1>} />
           </Route>
         </Routes>
-      </BrowserRouter>
-    </Authenticator.Provider>
+      </Authenticator.Provider>
+    </BrowserRouter>
   );
 }
 

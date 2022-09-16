@@ -1,7 +1,6 @@
 import React from "react";
-//import { useAuthenticator } from "@aws-amplify/ui-react";
 import { Link } from "react-router-dom";
-const Button = ({ value }) => {
+const Button = ({ value, id }) => {
   const hexColor = {
     color: "#f5f5f5",
   };
@@ -18,7 +17,7 @@ const Button = ({ value }) => {
         </button>
       ) : (
         <button disabled={true} className="self-center mt-5 lg:mt-0 md:mt-0">
-          <Link to="/">Apply</Link>
+          <Link to={`/apply/${id}`}>Apply</Link>
         </button>
       )}
     </>

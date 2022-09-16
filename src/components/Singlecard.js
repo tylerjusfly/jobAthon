@@ -92,7 +92,7 @@ export const Singlecard = () => {
                 return <Tags key={tag} tag={tag} />;
               })}
             </ul>
-            <Button value={btnCheck} />
+            <Button value={btnCheck} id={gig.id} />
             {/* Tags Ends here */}
           </div>
         </div>

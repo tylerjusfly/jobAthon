@@ -2,6 +2,13 @@
   max-width: 50px;
   max-height: 50px;
 }
+.Alljobs .app-btns {
+  font-size: small;
+  border: 1px solid #000;
+  font-weight: 700;
+  padding: 5px;
+  border-radius: 5px;
+}
 
 .details {
   color: #666;

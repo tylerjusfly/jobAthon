@@ -28,5 +28,22 @@ export const useFormErrors = () => {
     return errors;
   };
 
-  return { validate };
+  const validateApplicant = (values, file) => {
+    const errors = {};
+    if (!values.fullname) {
+      errors.fullname = "Fullname is Required!";
+    }
+    if (!values.linkedinUrl) {
+      errors.linkedinUrl = "linkedin Url is Required!";
+    }
+    if (!file) {
+      errors.resume = "Resume Pdf is Required!";
+    } else if (file.type != "application/pdf") {
+      errors.resume = "Only Pdf Files are Accepted!";
+    }
+
+    return errors;
+  };
+
+  return { validate, validateApplicant };
 };

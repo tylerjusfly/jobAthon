@@ -9,9 +9,20 @@ import { DefaultSearchField } from "./reusables/Search";
 import { useImageLink } from "./hooks/useImageLink";
 import ReactPaginate from "react-paginate";
 import { usePaginate } from "./hooks/usePaginate";
+import { useAuthenticator } from "@aws-amplify/ui-react";
 
-const JobsComponent = ({ id, position, location, company, type, img }) => {
+const JobsComponent = ({
+  id,
+  position,
+  location,
+  company,
+  type,
+  img,
+  owner,
+}) => {
   const { image } = useImageLink(img);
+  const { user } = useAuthenticator((context) => [context.user]);
+  const isPost = user && user.attributes.email === owner ? true : false;
 
   return (
     <div className="flex gap-10 bg-gray-50 border border-gray-200 rounded p-6 Alljobs">
@@ -25,6 +36,11 @@ const JobsComponent = ({ id, position, location, company, type, img }) => {
           {company} <span className="text-2xl font-bold">. </span> {type}
         </p>
       </div>
+      {isPost && (
+        <button className="app-btns self-end">
+          <Link to={`/applicants/${id}`}>View Applicants</Link>
+        </button>
+      )}
     </div>
   );
 };
@@ -79,6 +95,7 @@ export const AllJobs = () => {
                     img={job.logo}
                     company={job.company}
                     type={job.type}
+                    owner={job.owner}
                   />
                 );
               })}

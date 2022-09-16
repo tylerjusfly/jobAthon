@@ -1,5 +1,87 @@
 export const schema = {
   models: {
+    ApplicantsModel: {
+      name: "ApplicantsModel",
+      fields: {
+        id: {
+          name: "id",
+          isArray: false,
+          type: "ID",
+          isRequired: true,
+          attributes: [],
+        },
+        jobId: {
+          name: "jobId",
+          isArray: false,
+          type: "ID",
+          isRequired: true,
+          attributes: [],
+        },
+        applicantMail: {
+          name: "applicantMail",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
+        linkedIn: {
+          name: "linkedIn",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
+        resumePdf: {
+          name: "resumePdf",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
+        fullname: {
+          name: "fullname",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
+        createdAt: {
+          name: "createdAt",
+          isArray: false,
+          type: "AWSDateTime",
+          isRequired: false,
+          attributes: [],
+          isReadOnly: true,
+        },
+        updatedAt: {
+          name: "updatedAt",
+          isArray: false,
+          type: "AWSDateTime",
+          isRequired: false,
+          attributes: [],
+          isReadOnly: true,
+        },
+      },
+      syncable: true,
+      pluralName: "ApplicantsModels",
+      attributes: [
+        {
+          type: "model",
+          properties: {},
+        },
+        {
+          type: "auth",
+          properties: {
+            rules: [
+              {
+                allow: "public",
+                operations: ["create", "update", "delete", "read"],
+              },
+            ],
+          },
+        },
+      ],
+    },
     JobsModel: {
       name: "JobsModel",
       fields: {
@@ -107,5 +189,5 @@ export const schema = {
   },
   enums: {},
   nonModels: {},
-  version: "608fcb7cf4515395a0e189e97ddd1f97",
+  version: "d1778e91bbf343581ab92604ef793457",
 };
