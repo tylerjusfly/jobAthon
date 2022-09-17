@@ -42,6 +42,7 @@ const MyPostedJobs = ({ user }) => {
                 img={job.logo}
                 company={job.company}
                 type={job.type}
+                owner={job.owner}
               />
             );
           })

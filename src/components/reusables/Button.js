@@ -16,7 +16,7 @@ const Button = ({ value, id }) => {
           Apply
         </button>
       ) : (
-        <button disabled={true} className="self-center mt-5 lg:mt-0 md:mt-0">
+        <button className="self-center mt-5 lg:mt-0 md:mt-0">
           <Link to={`/apply/${id}`}>Apply</Link>
         </button>
       )}

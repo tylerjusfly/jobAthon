@@ -5,3 +5,4 @@ export { default as FindJobs } from "./FindJobs";
 export { default as CreateJob } from "./CreateJob";
 export { default as Auth } from "./Auth";
 export { default as MyPostedJobs } from "./MyPostedJobs";
+export { default as NotFound } from "./NotFound";

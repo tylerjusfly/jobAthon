@@ -20,7 +20,7 @@ export const JobCard = ({
     <div className="bg-gray-50 border border-gray-200 rounded p-6">
       <div className="flex">
         <div>
-          <h3 className="text-xl mb-4 font-bold">
+          <h3 className="text-l mb-4 font-bold">
             <Link to={`gigs/${id}`}>{position}</Link>
           </h3>
           <div className="flex items-center gap-1 text-l font-bold mb-4 location">
@@ -37,8 +37,8 @@ export const JobCard = ({
               className="company--img"
               src={image ? image : google}
               alt="company"
-            />{" "}
-            <span>{company}</span>
+            />
+            <span className="text-l">{company}</span>
           </div>
         </div>
       </div>

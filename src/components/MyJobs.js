@@ -2,9 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import google from "../assets/images/amplify.jpg";
 import { useImageLink } from "./hooks/useImageLink";
+import { useAuthenticator } from "@aws-amplify/ui-react";
 
-export const MyJobs = ({ id, position, location, company, type, img }) => {
+export const MyJobs = ({
+  id,
+  position,
+  location,
+  company,
+  type,
+  img,
+  owner,
+}) => {
   const { image } = useImageLink(img);
+  const { user } = useAuthenticator((context) => [context.user]);
+  const isPost = user && user.attributes.email === owner ? true : false;
 
   return (
     <div className="flex gap-10 bg-gray-50 border border-gray-200 rounded p-6 Alljobs">
@@ -18,6 +29,11 @@ export const MyJobs = ({ id, position, location, company, type, img }) => {
           {type} <span className="text-2xl font-bold">. </span> {location}
         </p>
       </div>
+      {isPost && (
+        <button className="app-btns self-end justify-self-end">
+          <Link to={`/applicants/${id}`}>View Applicants</Link>
+        </button>
+      )}
     </div>
   );
 };

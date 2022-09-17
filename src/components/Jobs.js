@@ -23,7 +23,10 @@ export const Jobs = () => {
   return (
     <section className="Jobs">
       <h2 className="text-2xl font-bold m-4">Jobs</h2>
-      <p className="font-bold m-4">Find a job you love. Go to job search </p>
+      <p className="font-bold m-4">
+        Find a job you love. Go to
+        <span className="ml-1 text-sky-700">Find Jobs </span>
+      </p>
       <div className="lg:grid lg:grid-cols-3 gap-4 md:grid md:grid-cols-2 space-y-4 md:space-y-0 mx-4">
         {jobs.map((job) => {
           return (

@@ -8,6 +8,7 @@ import {
   FindJobs,
   MyPostedJobs,
   SingleJob,
+  NotFound,
 } from "./Pages";
 import { Authenticator } from "@aws-amplify/ui-react";
 import ApplyForm from "./components/ApplyForm";
@@ -30,7 +31,7 @@ function App() {
             <Route path="/applicants/:gigsId" element={<Applicants />} />
             <Route path="/create-job" element={<CreateJob />} />
             <Route path="/myjobs" element={<MyPostedJobs />} />
-            <Route path="*" element={<h1>Page Not Found</h1>} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </Authenticator.Provider>
