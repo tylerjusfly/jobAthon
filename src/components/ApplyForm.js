@@ -1,13 +1,12 @@
 import { withAuthenticator } from "@aws-amplify/ui-react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/css/button.css";
 import { ImLinkedin } from "react-icons/im";
 import { ApplicantsModel } from "../models";
 import { DataStore } from "@aws-amplify/datastore";
 import { Storage } from "@aws-amplify/storage";
 import { useNavigate, useParams } from "react-router-dom";
-import { useFormErrors } from "./hooks/useFormErrors";
-import { useEffect } from "react";
+import { useFormErrors } from "../hooks/useFormErrors";
 
 const ApplyForm = ({ user }) => {
   const { gigsId } = useParams();
@@ -41,6 +40,8 @@ const ApplyForm = ({ user }) => {
             fullname: formdata.fullname,
             linkedIn: formdata.linkedinUrl,
             resumePdf: fileAccessUrl.key,
+            company: "Google",
+            jobPosition: "React Dev",
           })
         );
         navigate("/");

@@ -65,24 +65,3 @@ export const Applicants = () => {
     </>
   );
 };
-
-// {/* <div className="p-5 mb-5 Applicant flex flex-row items-center justify-around">
-// <div className="md:flex md:flex-row lg:flex lg:flex-row gap-20 items-center">
-//   <h2 className="font-bold">{fullname}</h2>
-// <button className="ApplicantsComponentBtn">
-//   {/* 👇️ If you need to simply link to external URL */}
-//   <a
-//     href={`${linkedIn}`}
-//     target="_blank"
-//     rel="noreferrer"
-//     className="flex items-center gap-2"
-//   >
-//     LinkedIn <ImLinkedin />
-//   </a>
-// </button>
-// </div>
-// <div className="flex gap-20 items-center">
-//   <span>{email}</span>
-//   <div>Download PDF</div>
-// </div>
-// </div> */}

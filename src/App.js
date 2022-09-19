@@ -4,18 +4,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   Auth,
   Layout,
-  CreateJob,
-  FindJobs,
   MyPostedJobs,
   SingleJob,
   NotFound,
+  CreateJobs,
+  Homepage,
+  AllJobs,
 } from "./Pages";
 import { Authenticator } from "@aws-amplify/ui-react";
 import ApplyForm from "./components/ApplyForm";
-import { Homepage } from "./components/Homepage";
 import { Applicants } from "./components/Applicants";
-
-//{ signOut, user } props
+import AppliedJobs from "./components/AppliedJobs";
 
 function App() {
   return (
@@ -26,11 +25,12 @@ function App() {
             <Route index element={<Homepage />} />
             <Route path="/signup" element={<Auth />} />
             <Route path="/gigs/:gigsId" element={<SingleJob />} />
-            <Route path="/jobs" element={<FindJobs />} />
+            <Route path="/jobs" element={<AllJobs />} />
             <Route path="/apply/:gigsId" element={<ApplyForm />} />
             <Route path="/applicants/:gigsId" element={<Applicants />} />
-            <Route path="/create-job" element={<CreateJob />} />
+            <Route path="/create-job" element={<CreateJobs />} />
             <Route path="/myjobs" element={<MyPostedJobs />} />
+            <Route path="/appliedjobs" element={<AppliedJobs />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

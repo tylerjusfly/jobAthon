@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/css/jobs.css";
-import { JobCard } from "./Jobs-Card";
+import JobCard from "./Jobs-Card";
 import { DataStore, Predicates, SortDirection } from "@aws-amplify/datastore";
 import { JobsModel } from "../models";
 
 export const Jobs = () => {
-  const [jobs, setJobs] = React.useState([]);
+  const [jobs, setJobs] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const func = async () => {
       const gigs = await DataStore.query(JobsModel, Predicates.ALL, {
         page: 0,

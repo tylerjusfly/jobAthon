@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { withAuthenticator } from "@aws-amplify/ui-react";
-import { FormButton } from "./reusables/FormButton";
+import { FormButton } from "../components/reusables/FormButton";
 import { DataStore } from "@aws-amplify/datastore";
 import { Storage } from "@aws-amplify/storage";
 import { JobsModel } from "../models";
 import { useNavigate } from "react-router-dom";
-import { useFormErrors } from "./hooks/useFormErrors";
+import { useFormErrors } from "../hooks/useFormErrors";
 
 const CreateJobs = ({ user }) => {
   const [formData, setFormData] = useState({

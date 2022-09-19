@@ -3,17 +3,9 @@ import google from "../assets/images/amplify.jpg";
 import { Tags } from "./reusables/Tags";
 import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { useImageLink } from "./hooks/useImageLink";
+import { useImageLink } from "../hooks/useImageLink";
 
-export const JobCard = ({
-  id,
-  position,
-  location,
-  type,
-  company,
-  tags,
-  img,
-}) => {
+const JobCard = ({ id, position, location, type, company, tags, img }) => {
   const { image } = useImageLink(img);
 
   return (
@@ -45,3 +37,5 @@ export const JobCard = ({
     </div>
   );
 };
+
+export default React.memo(JobCard);

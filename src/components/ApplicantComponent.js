@@ -1,6 +1,6 @@
 import React from "react";
 import { ImLinkedin } from "react-icons/im";
-import { usePdfLink } from "./hooks/usePdfLink";
+import { usePdfLink } from "../hooks/usePdfLink";
 
 export const ApplicantComponent = ({ fullname, linkedIn, email, pdf }) => {
   const { signedURL } = usePdfLink(pdf);

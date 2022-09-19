@@ -5,6 +5,8 @@ type ApplicantsModel @model @auth(rules: [{allow: public}]) {
   linkedIn: String!
   resumePdf: String!
   fullname: String!
+  company: String!
+  jobPosition: String!
 }
 
 type JobsModel @model @auth(rules: [{allow: public}]) {

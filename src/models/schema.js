@@ -45,6 +45,20 @@ export const schema = {
           isRequired: true,
           attributes: [],
         },
+        company: {
+          name: "company",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
+        jobPosition: {
+          name: "jobPosition",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
         createdAt: {
           name: "createdAt",
           isArray: false,
@@ -189,5 +203,5 @@ export const schema = {
   },
   enums: {},
   nonModels: {},
-  version: "d1778e91bbf343581ab92604ef793457",
+  version: "708d4917ce9c4e8fa8d278606a0d6299",
 };

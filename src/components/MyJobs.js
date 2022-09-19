@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import google from "../assets/images/amplify.jpg";
-import { useImageLink } from "./hooks/useImageLink";
+import { useImageLink } from "../hooks/useImageLink";
 import { useAuthenticator } from "@aws-amplify/ui-react";
 
 export const MyJobs = ({

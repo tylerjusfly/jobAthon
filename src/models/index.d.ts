@@ -19,6 +19,8 @@ export declare class ApplicantsModel {
   readonly linkedIn: string;
   readonly resumePdf: string;
   readonly fullname: string;
+  readonly company: string;
+  readonly jobPosition: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<ApplicantsModel, ApplicantsModelMetaData>);

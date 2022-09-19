@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import google from "../assets/images/amplify.jpg";
 import { DataStore, Predicates, SortDirection } from "@aws-amplify/datastore";
 import { JobsModel } from "../models";
-import { DefaultSearchField } from "./reusables/Search";
-import { useImageLink } from "./hooks/useImageLink";
+import { DefaultSearchField } from "../components/reusables/Search";
+import { useImageLink } from "../hooks/useImageLink";
 import ReactPaginate from "react-paginate";
-import { usePaginate } from "./hooks/usePaginate";
+import { usePaginate } from "../hooks/usePaginate";
 
 const JobsComponent = ({ id, position, location, company, type, img }) => {
   const { image } = useImageLink(img);

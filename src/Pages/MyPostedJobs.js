@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { DataStore } from "@aws-amplify/datastore";
 import { JobsModel } from "../models";
 import { MyJobs } from "../components/MyJobs";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import ReactPaginate from "react-paginate";
-import { usePaginate } from "../components/hooks/usePaginate";
+import { usePaginate } from "../hooks/usePaginate";
 
 const MyPostedJobs = ({ user }) => {
-  const [myJobs, setMyJobs] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
+  const [myJobs, setMyJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const MyAllJobs = async () => {
       const gigs = await DataStore.query(JobsModel, (c) =>
         c.owner("contains", user.attributes.email)

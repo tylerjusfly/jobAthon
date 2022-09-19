@@ -1,8 +1,8 @@
 export { default as Layout } from "./Layout";
-export { default as Home } from "./Home";
+export { Homepage } from "./Homepage";
 export { default as SingleJob } from "./SingleJob";
-export { default as FindJobs } from "./FindJobs";
-export { default as CreateJob } from "./CreateJob";
+export { AllJobs } from "./AllJobs";
+export { default as CreateJobs } from "./CreateJobs";
 export { default as Auth } from "./Auth";
 export { default as MyPostedJobs } from "./MyPostedJobs";
 export { default as NotFound } from "./NotFound";
