@@ -10,7 +10,6 @@ export const Applicants = () => {
   const [loading, setLoading] = React.useState(true);
 
   const { gigsId } = useParams();
-  console.log(gigsId);
 
   React.useEffect(() => {
     const ListOfApplicants = async () => {

@@ -2,18 +2,25 @@ import React, { useEffect, useState } from "react";
 import { ApplicantsModel } from "../models";
 import { DataStore } from "@aws-amplify/datastore";
 import { withAuthenticator } from "@aws-amplify/ui-react";
+import { usePdfLink } from "../hooks/usePdfLink";
 
-const AppliedJobsComponents = ({ email }) => {
+const AppliedJobsComponents = ({ email, company, position, file }) => {
+  const { signedURL } = usePdfLink(file);
+
   return (
-    <div className="flex gap-10 bg-gray-50 border border-gray-200 rounded p-6 Alljobs">
-      {/* <img src={image ? image : google} alt="design" height={50} /> */}
+    <div className="flex gap-10 justify-between bg-gray-50 border border-gray-200 rounded p-6 Alljobs">
       <div>
         <h2 className="font-bold">{email}</h2>
         <p className="details">
-          devTo <span className="text-2xl font-bold">. </span> Frontend
+          {company} <span className="text-2xl font-bold">. </span>
+          {position}
         </p>
       </div>
-      <button>View Resume</button>
+      <button className="bg-black hover:bg-slate-700 text-white font-bold py-2 px-4 rounded">
+        <a href={signedURL} target="_blank" rel="noreferrer">
+          View Resume
+        </a>
+      </button>
     </div>
   );
 };
@@ -41,7 +48,15 @@ const AppliedJobs = ({ user }) => {
         <div>loading..</div>
       ) : (
         appliedJobs.map((m) => {
-          return <AppliedJobsComponents key={m.id} email={m.applicantMail} />;
+          return (
+            <AppliedJobsComponents
+              key={m.id}
+              email={m.applicantMail}
+              company={m.company}
+              position={m.jobPosition}
+              file={m.resumePdf}
+            />
+          );
         })
       )}
     </div>
