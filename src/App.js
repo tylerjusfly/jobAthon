@@ -10,9 +10,9 @@ import {
   CreateJobs,
   Homepage,
   AllJobs,
+  ApplyForm,
 } from "./Pages";
 import { Authenticator } from "@aws-amplify/ui-react";
-import ApplyForm from "./components/ApplyForm";
 import { Applicants } from "./components/Applicants";
 import AppliedJobs from "./components/AppliedJobs";
 

@@ -6,3 +6,4 @@ export { default as CreateJobs } from "./CreateJobs";
 export { default as Auth } from "./Auth";
 export { default as MyPostedJobs } from "./MyPostedJobs";
 export { default as NotFound } from "./NotFound";
+export { default as ApplyForm } from "./ApplyForm";
