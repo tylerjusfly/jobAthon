@@ -1,5 +1,101 @@
 export const schema = {
   models: {
+    ApplicantModel: {
+      name: "ApplicantModel",
+      fields: {
+        id: {
+          name: "id",
+          isArray: false,
+          type: "ID",
+          isRequired: true,
+          attributes: [],
+        },
+        jobId: {
+          name: "jobId",
+          isArray: false,
+          type: "ID",
+          isRequired: false,
+          attributes: [],
+        },
+        applicantMail: {
+          name: "applicantMail",
+          isArray: false,
+          type: "String",
+          isRequired: false,
+          attributes: [],
+        },
+        linkedIn: {
+          name: "linkedIn",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
+        resumePdf: {
+          name: "resumePdf",
+          isArray: false,
+          type: "String",
+          isRequired: false,
+          attributes: [],
+        },
+        fullname: {
+          name: "fullname",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
+        company: {
+          name: "company",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
+        jobPosition: {
+          name: "jobPosition",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
+        createdAt: {
+          name: "createdAt",
+          isArray: false,
+          type: "AWSDateTime",
+          isRequired: false,
+          attributes: [],
+          isReadOnly: true,
+        },
+        updatedAt: {
+          name: "updatedAt",
+          isArray: false,
+          type: "AWSDateTime",
+          isRequired: false,
+          attributes: [],
+          isReadOnly: true,
+        },
+      },
+      syncable: true,
+      pluralName: "ApplicantModels",
+      attributes: [
+        {
+          type: "model",
+          properties: {},
+        },
+        {
+          type: "auth",
+          properties: {
+            rules: [
+              {
+                allow: "public",
+                operations: ["create", "update", "delete", "read"],
+              },
+            ],
+          },
+        },
+      ],
+    },
     ApplicantssModel: {
       name: "ApplicantssModel",
       fields: {
@@ -203,5 +299,5 @@ export const schema = {
   },
   enums: {},
   nonModels: {},
-  version: "dc12ba73fc0e2fd35d37bc5df8870d05",
+  version: "3cd6e9e166c62cbbea18fc371bf1540d",
 };

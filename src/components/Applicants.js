@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ApplicantssModel } from "../models";
+import { ApplicantModel } from "../models";
 import { ApplicantComponent } from "./ApplicantComponent";
 import "../assets/css/button.css";
 import { DataStore } from "@aws-amplify/datastore";
@@ -13,7 +13,7 @@ export const Applicants = () => {
 
   React.useEffect(() => {
     const ListOfApplicants = async () => {
-      const lists = await DataStore.query(ApplicantssModel, (c) =>
+      const lists = await DataStore.query(ApplicantModel, (c) =>
         c.jobId("contains", gigsId)
       );
 

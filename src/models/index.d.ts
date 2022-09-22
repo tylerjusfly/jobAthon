@@ -4,12 +4,31 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+type ApplicantModelMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type ApplicantssModelMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
 type JobsModelMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+export declare class ApplicantModel {
+  readonly id: string;
+  readonly jobId?: string | null;
+  readonly applicantMail?: string | null;
+  readonly linkedIn: string;
+  readonly resumePdf?: string | null;
+  readonly fullname: string;
+  readonly company: string;
+  readonly jobPosition: string;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<ApplicantModel, ApplicantModelMetaData>);
+  static copyOf(source: ApplicantModel, mutator: (draft: MutableModel<ApplicantModel, ApplicantModelMetaData>) => MutableModel<ApplicantModel, ApplicantModelMetaData> | void): ApplicantModel;
 }
 
 export declare class ApplicantssModel {

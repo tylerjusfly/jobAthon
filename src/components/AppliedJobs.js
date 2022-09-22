@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ApplicantssModel } from "../models";
+import { ApplicantModel } from "../models";
 import { DataStore } from "@aws-amplify/datastore";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import AppliedJobsComponents from "./AppliedJobsComponents";
@@ -10,7 +10,7 @@ const AppliedJobs = ({ user }) => {
 
   useEffect(() => {
     const appliedJobsFunction = async () => {
-      const listOfJobs = await DataStore.query(ApplicantssModel, (c) =>
+      const listOfJobs = await DataStore.query(ApplicantModel, (c) =>
         c.applicantMail("contains", user.attributes.email)
       );
 

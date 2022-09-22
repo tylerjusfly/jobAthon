@@ -1,3 +1,14 @@
+type ApplicantModel @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  jobId: ID
+  applicantMail: String
+  linkedIn: String!
+  resumePdf: String
+  fullname: String!
+  company: String!
+  jobPosition: String!
+}
+
 type ApplicantssModel @model @auth(rules: [{allow: public}]) {
   id: ID!
   jobId: String!

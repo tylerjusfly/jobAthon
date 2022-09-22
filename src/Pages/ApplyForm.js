@@ -2,7 +2,7 @@ import { withAuthenticator } from "@aws-amplify/ui-react";
 import React, { useState, useEffect } from "react";
 import "../assets/css/button.css";
 import { ImLinkedin } from "react-icons/im";
-import { ApplicantssModel } from "../models";
+import { ApplicantModel } from "../models";
 import { DataStore } from "@aws-amplify/datastore";
 import { Storage } from "@aws-amplify/storage";
 import { useNavigate, useParams } from "react-router-dom";
@@ -34,7 +34,7 @@ const ApplyForm = ({ user }) => {
         });
         //save applicant form to db
         await DataStore.save(
-          new ApplicantssModel({
+          new ApplicantModel({
             jobId: formdata.jobId,
             applicantMail: formdata.applicant,
             fullname: formdata.fullname,
