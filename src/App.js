@@ -14,7 +14,7 @@ import {
 import { Authenticator } from "@aws-amplify/ui-react";
 import ApplyForm from "./components/ApplyForm";
 import { Applicants } from "./components/Applicants";
-// import AppliedJobs from "./components/AppliedJobs";
+import AppliedJobs from "./components/AppliedJobs";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
             <Route path="/applicants/:gigsId" element={<Applicants />} />
             <Route path="/create-job" element={<CreateJobs />} />
             <Route path="/myjobs" element={<MyPostedJobs />} />
-            {/* <Route path="/appliedjobs" element={<AppliedJobs />} /> */}
+            <Route path="/appliedjobs" element={<AppliedJobs />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
