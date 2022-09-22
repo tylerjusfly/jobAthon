@@ -26,7 +26,10 @@ function App() {
             <Route path="/signup" element={<Auth />} />
             <Route path="/gigs/:gigsId" element={<SingleJob />} />
             <Route path="/jobs" element={<AllJobs />} />
-            <Route path="/apply/:gigsId" element={<ApplyForm />} />
+            <Route
+              path="/apply/:gigsId/:company/:position"
+              element={<ApplyForm />}
+            />
             <Route path="/applicants/:gigsId" element={<Applicants />} />
             <Route path="/create-job" element={<CreateJobs />} />
             <Route path="/myjobs" element={<MyPostedJobs />} />

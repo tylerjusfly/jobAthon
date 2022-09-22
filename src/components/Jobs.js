@@ -8,7 +8,7 @@ export const Jobs = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    const func = async () => {
+    const homeJobFunc = async () => {
       const gigs = await DataStore.query(JobsModel, Predicates.ALL, {
         page: 0,
         limit: 6,
@@ -17,7 +17,7 @@ export const Jobs = () => {
       setJobs(gigs);
     };
 
-    func();
+    homeJobFunc();
   }, []);
 
   return (

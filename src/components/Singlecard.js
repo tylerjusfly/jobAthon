@@ -69,7 +69,6 @@ export const Singlecard = () => {
             />
             <div className="self-center">
               <div className="text-xl font-bold mb-4 text-center">
-                {" "}
                 {gig.position}
               </div>
               <p className="flex items-center gap-1 text-l font-bold mb-4 text-center single--company">
@@ -92,7 +91,12 @@ export const Singlecard = () => {
                 return <Tags key={tag} tag={tag} />;
               })}
             </ul>
-            <Button value={btnCheck} id={gig.id} />
+            <Button
+              value={btnCheck}
+              id={gig.id}
+              company={gig.company}
+              position={gig.position}
+            />
             {/* Tags Ends here */}
           </div>
         </div>

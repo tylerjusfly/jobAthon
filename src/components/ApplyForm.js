@@ -9,7 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useFormErrors } from "../hooks/useFormErrors";
 
 const ApplyForm = ({ user }) => {
-  const { gigsId } = useParams();
+  const { gigsId, company, position } = useParams();
 
   const [formdata, setFormdata] = useState({
     applicant: user.attributes.email,
@@ -40,11 +40,11 @@ const ApplyForm = ({ user }) => {
             fullname: formdata.fullname,
             linkedIn: formdata.linkedinUrl,
             resumePdf: fileAccessUrl.key,
-            company: "Hashnode",
-            jobPosition: "NodeJs Senior developer",
+            company: company,
+            jobPosition: position,
           })
         );
-        navigate("/");
+        navigate("/appliedjobs");
         //console.log(form);
       } catch (error) {
         console.log("e=>", error);
