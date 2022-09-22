@@ -21,7 +21,6 @@ const AppliedJobs = ({ user }) => {
     appliedJobsFunction();
   }, []);
 
-  console.log(appliedJobs);
   return (
     <div>
       <h2 className="m-4 font-bold text-center">Applied Jobs</h2>
