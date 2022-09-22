@@ -1,6 +1,6 @@
-type ApplicantsModel @model @auth(rules: [{allow: public}]) {
+type ApplicantssModel @model @auth(rules: [{allow: public}]) {
   id: ID!
-  jobId: ID!
+  jobId: String!
   applicantMail: String!
   linkedIn: String!
   resumePdf: String!

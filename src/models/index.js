@@ -2,6 +2,6 @@
 import { initSchema } from "@aws-amplify/datastore";
 import { schema } from "./schema";
 
-const { ApplicantsModel, JobsModel } = initSchema(schema);
+const { ApplicantssModel, JobsModel } = initSchema(schema);
 
-export { ApplicantsModel, JobsModel };
+export { ApplicantssModel, JobsModel };

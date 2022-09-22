@@ -1,7 +1,7 @@
 export const schema = {
   models: {
-    ApplicantsModel: {
-      name: "ApplicantsModel",
+    ApplicantssModel: {
+      name: "ApplicantssModel",
       fields: {
         id: {
           name: "id",
@@ -13,7 +13,7 @@ export const schema = {
         jobId: {
           name: "jobId",
           isArray: false,
-          type: "ID",
+          type: "String",
           isRequired: true,
           attributes: [],
         },
@@ -77,7 +77,7 @@ export const schema = {
         },
       },
       syncable: true,
-      pluralName: "ApplicantsModels",
+      pluralName: "ApplicantssModels",
       attributes: [
         {
           type: "model",
@@ -203,5 +203,5 @@ export const schema = {
   },
   enums: {},
   nonModels: {},
-  version: "708d4917ce9c4e8fa8d278606a0d6299",
+  version: "dc12ba73fc0e2fd35d37bc5df8870d05",
 };

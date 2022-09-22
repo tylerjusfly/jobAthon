@@ -30,7 +30,7 @@ const JobCard = ({ id, position, location, type, company, tags, img }) => {
               src={image ? image : google}
               alt="company"
             />
-            <span className="text-l">{company}</span>
+            <span className="text-lg">{company}</span>
           </div>
         </div>
       </div>

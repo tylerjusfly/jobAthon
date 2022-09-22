@@ -11,7 +11,7 @@ const Button = ({ value, id }) => {
         <button
           style={hexColor}
           disabled={true}
-          className="self-center mt-5 lg:mt-0 md:mt-0 font-bold"
+          className="self-center mt-5 lg:mt-0 md:mt-0 font-bold cursor-not-allowed"
         >
           Apply
         </button>
