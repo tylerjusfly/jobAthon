@@ -44,6 +44,7 @@ const ApplyForm = ({ user }) => {
             jobPosition: position,
           })
         );
+
         navigate("/appliedjobs");
         //console.log(form);
       } catch (error) {
