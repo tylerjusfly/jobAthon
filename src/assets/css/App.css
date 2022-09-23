@@ -1,3 +1,21 @@
 /* .App {
   text-align: center;
 } */
+
+textarea {
+  display: inline-block;
+  margin: 0;
+  padding: 0.2em;
+  width: auto;
+  min-width: 10em;
+  /* The max-width "100%" value fixes a weird issue where width is too wide by default and extends beyond 100% of the parent in some agents. */
+  max-width: 1000%;
+  height: auto;
+  min-height: 10em;
+  cursor: text;
+  background-color: #eee;
+  /* Overflow "auto" allows the box to start with no scrollbars but add them as content fills the box. */
+  overflow: auto;
+  /* Resize creates a tab in the lower right corner of textarea for most modern browsers and allows users to resize the box manually. Note: Resize isn't supported by most older agents and IE. */
+  resize: none;
+}
