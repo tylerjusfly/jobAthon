@@ -30,6 +30,7 @@ const ApplyForm = ({ user }) => {
       try {
         const filename = `${Date.now()}-${selectedFile.name}`;
         const fileAccessUrl = await Storage.put(filename, selectedFile, {
+          expires: new Date().now() + 60 * 60 * 24 * 7,
           contentType: selectedFile.type,
         });
         //save applicant form to db
